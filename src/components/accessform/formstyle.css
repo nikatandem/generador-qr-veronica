@@ -134,7 +134,7 @@
     top: 450px;
     width: auto;
 }
-@media (min-width:320px) {
+@media (max-width:440px) {
     .acceso{
       color:#282828;
       background-color: #f1f1f1;
