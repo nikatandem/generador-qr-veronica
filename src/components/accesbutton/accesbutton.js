@@ -1,10 +1,14 @@
 import React from "react";
 import "../layout.css"
+import Formulario from "../../pages/formulario";
+import { Link } from 'gatsby';
 
 
 function Access(){
 return(
+    <Link to="/formulario">
     <button className="btnaccess">Acceder</button>
+    </Link>
 )
 }
 

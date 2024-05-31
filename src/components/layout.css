@@ -268,4 +268,10 @@
   pre tt:after {
     content: none;
   }
-  
+  @media (min-width:320px) {
+    body{
+      color:#282828;
+      background-color: #FFFFFF;
+    }
+     
+    }

@@ -2,6 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby"
 import "../layout.css"
 import { StaticImage } from "gatsby-plugin-image"
+import { Link } from 'gatsby';
 
 function Logo() {
     return <StaticImage src="../../images/PNnegro.png" alt="Logo Patrimonio Nacional" ></StaticImage>
@@ -15,7 +16,8 @@ return(
         display: 'flex',
         alignItems: 'center',
       }}>
-        <Logo /> Generador de QR
+        <Link to="/"><Logo /></Link>
+        Generador de QR
       </h1>
     </>
 

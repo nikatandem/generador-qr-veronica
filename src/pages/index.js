@@ -3,7 +3,7 @@ import Access from "../components/accesbutton/accesbutton"
 import ButtonInfo from "../components/btninformacióninstitucional/informacionbutton"
 import Layout from "../components/layout"
 import Slider from "../components/slider/slider"
-
+import { Link } from 'gatsby';
 
 const IndexPage = () =>{
 return(
