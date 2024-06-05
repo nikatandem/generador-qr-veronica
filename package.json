@@ -21,14 +21,20 @@
     "bootstrap": "^5.3.3",
     "gatsby": "^5.13.5",
     "gatsby-plugin-image": "^3.13.1",
+    "gatsby-plugin-react-svg": "^3.3.0",
     "gatsby-plugin-sharp": "^5.13.1",
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-transformer-sharp": "^5.13.1",
+    "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18.3.1",
     "react-slick": "^0.30.2",
     "reactstrap": "^9.2.2",
     "slick-carousel": "^1.8.1"
+  },
+  "devDependencies": {
+    "babel-plugin-flow-react-proptypes": "^26.0.0",
+    "flow-bin": "^0.237.2"
   }
 }

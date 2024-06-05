@@ -1,0 +1,13 @@
+a{
+    display: block;
+    margin-left: 0px;
+}
+a:hover{
+    color: #282828;
+}
+.lista{
+    margin-left: 3px;
+}
+.text-wrapper{
+    color: #282828
+}
