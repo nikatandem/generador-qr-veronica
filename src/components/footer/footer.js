@@ -1,5 +1,6 @@
 import React from "react";
 import "../layout.css"
+// import "./footer.css"
 import FooterLogo from "./footerlogos";
 function Footer(){
 return(

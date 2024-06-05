@@ -1,7 +1,6 @@
 import React from "react";
 import Layout from "../components/layout"
 import FrameInicio from "../components/elementoinicio/elementoinicio";
-import MenuLateral from "../components/menulateral/menulateral";
 import { HamburgerMenuPage } from "../components/menulateral/menulateral";
 const Inicio = () => {
     return(

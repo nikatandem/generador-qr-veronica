@@ -1,0 +1,26 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: center; /* Centra los logos horizontalmente */
+    align-items: center; /* Centra los logos verticalmente dentro del footer */
+    background-color: #F1F1F1; /* Color de fondo gris */
+    padding: 10px 0; /* Espacio vertical dentro del footer */
+    width: 100%; /* Asegura que el footer ocupe todo el ancho de la página */
+    margin-top: auto; /* Empuja el footer al fondo del contenedor */
+    margin-bottom:0;
+  }
+  
+  .imgfoot {
+    height: 30px; /* Tamaño pequeño para los logos */
+    margin: 0 10px; /* Espacio entre los logos */
+  }
