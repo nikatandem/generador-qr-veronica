@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "gatsby";
 import "./formstyle.css";
 
 function Acceso() {
@@ -44,7 +45,9 @@ function Acceso() {
         </label>
           </div>
       <div className="botones">
+<Link to="/inicio">
    <button className="elemento-button" type="submit" disabled={enviado}>Acceder</button>
+</Link>
       <p className="p-recuperar">¿Has olvidado tu contraseña?</p>
       <button type="button" className="btn-recuperar" onClick={handleRecoverPasswordClick}>Recuperar clave de acceso</button>
 </div>

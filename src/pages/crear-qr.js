@@ -1,14 +1,13 @@
 import * as React from "react"
 import Layout from "../components/layout"
-import Acceso from "../components/accessform/accessform"
 
-const Formulario = () =>{
+const Generador = () =>{
     return(
       <>
       <Layout>
-        <h2>Inicio de sesión</h2>
+        <h1>Generar QR</h1>
     
-    <Acceso/>
+
  
       </Layout>
     
@@ -16,4 +15,4 @@ const Formulario = () =>{
     )
     }
     
-    export default Formulario
+    export default Generador

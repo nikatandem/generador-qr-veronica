@@ -7,7 +7,7 @@ import { Link } from 'gatsby';
 function Access(){
 return(
     <Link to="/formulario">
-    <button className="btnaccess">Acceder</button>
+    <button className="btnaccess">Iniciar sesión</button>
     </Link>
 )
 }

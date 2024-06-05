@@ -1,13 +1,14 @@
-a{
+.text-wapper-2{
     display: block;
     margin-left: 0px;
 }
-a:hover{
+.text-wapper-2:hover{
     color: #282828;
 }
 .lista{
     margin-left: 3px;
 }
 .text-wrapper{
-    color: #282828
+    color: #282828;
+    text-decoration: underline .5px;   
 }

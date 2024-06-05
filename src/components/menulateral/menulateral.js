@@ -21,12 +21,12 @@ export const HamburgerMenuPage = () => {
                <div className="text-wrapper">Menú</div>
             </div>
 
-            <div className="menu-item-2"><Link to="#">
+            <div className="menu-item-2"><Link to="/inicio">
                 <a className="text-wapper-2" >Inicio</a></Link>
             </div>
             
             <div className="menu-item-2">
-            <Link to="#">
+            <Link to="/crear-qr">
                
                 <a className="text-wapper-2">Crear QR</a>
                 </Link>
@@ -54,7 +54,7 @@ export const HamburgerMenuPage = () => {
                  </Link>
              </div>
              <div className="menu-item-2">
-             <Link to="#">
+             <Link to="/formulario">
                 
                  <a className="text-wapper-2">Cerrar sesión</a>
                  </Link>
