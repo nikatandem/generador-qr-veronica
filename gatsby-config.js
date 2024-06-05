@@ -18,5 +18,7 @@ module.exports = {
         },
       },
     },
+    `styled-components`,
+    `html-to-image`,
   ],
 }
