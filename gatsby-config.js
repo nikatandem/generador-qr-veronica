@@ -21,6 +21,7 @@ module.exports = {
     `styled-components`,
     `html-to-image`,
     `file-saver`,
-    `downloadjs`
+    `downloadjs`,
+    `react-toastify`
   ],
 }

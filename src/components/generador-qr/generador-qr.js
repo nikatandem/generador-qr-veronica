@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import download from "downloadjs";
 import { toPng, toJpeg, toSvg } from 'html-to-image';
 import "./tabs.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Container = styled.div`
  display: flex;
@@ -104,6 +107,8 @@ width:auto;
 `;
 
 
+
+
 const QrCodeGenerator = () => {
   const [inputValue, setInputValue] = useState('');
   const [qrValue, setQrValue] = useState('');
@@ -112,6 +117,8 @@ const QrCodeGenerator = () => {
   const [qrFgColor, setQrFgColor] = useState('#000000');
   const [activeTab, setActiveTab] = useState(0);
   const [selectedFormat, setSelectedFormat] = useState('png');
+  const [downloadMessage, setDownloadMessage] = useState(''); 
+  const [warningMessage, setWarningMessage] = useState(''); 
   const qrRef = useRef(null);
 
   const handleChange = (e) => {
@@ -119,13 +126,19 @@ const QrCodeGenerator = () => {
   };
 
   const handleGenerate = () => {
+    if (inputValue.trim() === '') {
+      setWarningMessage('Por favor, rellena el campo de entrada.');
+      return;
+    }
     setQrValue(inputValue);
+    setWarningMessage(''); // Limpiar mensaje de advertencia si el campo está relleno
   };
 
   const handleTabClick = (index) => {
     setActiveTab(index);
     setInputValue('');
     setQrValue('');
+    setWarningMessage(''); // Limpiar mensaje de advertencia al cambiar de tab
   };
 
   const handleFormatChange = (event) => {
@@ -144,6 +157,7 @@ const QrCodeGenerator = () => {
         dataUrl = await toSvg(node);
       }
       download(dataUrl, `qr-code.${selectedFormat}`);
+      setDownloadMessage('Su QR se ha descargado con éxito');
     }
   };
 
@@ -164,6 +178,7 @@ const QrCodeGenerator = () => {
             placeholder="Inserte un texto"
             value={inputValue}
             onChange={handleChange}
+            style={{ borderColor: warningMessage && inputValue.trim() === '' ? ' #B41400' : '' }}
           />
         </TabPanel>
         <TabPanel isActive={activeTab === 1}>
@@ -173,6 +188,7 @@ const QrCodeGenerator = () => {
             placeholder="https://www.ejemplo.com"
             value={inputValue}
             onChange={handleChange}
+            style={{ borderColor: warningMessage && inputValue.trim() === '' ? ' #B41400' : '' }}
           />
         </TabPanel>
         <TabPanel isActive={activeTab === 2}>
@@ -182,6 +198,7 @@ const QrCodeGenerator = () => {
             placeholder="912 345 678"
             value={inputValue}
             onChange={handleChange}
+            style={{ borderColor: warningMessage && inputValue.trim() === '' ? ' #B41400' : '' }}
           />
         </TabPanel>
         <TabPanel isActive={activeTab === 3}>
@@ -191,6 +208,7 @@ const QrCodeGenerator = () => {
             placeholder="ejemplo@hotmail.com"
             value={inputValue}
             onChange={handleChange}
+            style={{ borderColor: warningMessage && inputValue.trim() === '' ? ' #B41400' : '' }}
           />
         </TabPanel>
         <TabPanel isActive={activeTab === 4}>
@@ -200,13 +218,14 @@ const QrCodeGenerator = () => {
             placeholder="Latitud (41 24.2028), Longitud (2 10.4418)"
             value={inputValue}
             onChange={handleChange}
+            style={{ borderColor: warningMessage && inputValue.trim() === '' ? ' #B41400' : '' }}
           />
         </TabPanel>
       </TabContainer>
       <p>Selecciona el tamaño (px):</p>
       <p className='subtexto'>*Tamaños recomendados: pequeño 100px, mediano 150px, grande 250px</p>
       <Input
-      className='selector'
+        className='selector'
         type="number"
         placeholder="Tamaño (px)"
         value={qrSize}
@@ -214,14 +233,14 @@ const QrCodeGenerator = () => {
       />
       <p>Selecciona el color de fondo en tono claro:</p>
       <Input
-      className='selector'
+        className='selector'
         type="color"
         value={qrBgColor}
         onChange={(e) => setQrBgColor(e.target.value)}
       />
       <p>Selecciona el color del código en tono oscuro:</p>
       <Input
-      className='selector'
+        className='selector'
         type="color"
         value={qrFgColor}
         onChange={(e) => setQrFgColor(e.target.value)}
@@ -230,7 +249,7 @@ const QrCodeGenerator = () => {
       {qrValue && (
         <div>
           <div id="qrCode" ref={qrRef}>
-          <QRCode value={qrValue} size={qrSize} bgColor={qrBgColor} fgColor={qrFgColor} />
+            <QRCode value={qrValue} size={qrSize} bgColor={qrBgColor} fgColor={qrFgColor} />
           </div>
           
           <div className="radio-group">
@@ -261,13 +280,11 @@ const QrCodeGenerator = () => {
                 checked={selectedFormat === 'svg'}
                 onChange={handleFormatChange}
               />
-                    SVG
-                  </label>
-                </div>
-                <Button onClick={handleConfirmDownload}>
-            Descargar
-          </Button>
-
+              SVG
+            </label>
+          </div>
+          <Button onClick={handleConfirmDownload}>Descargar</Button>
+          {downloadMessage && <p>{downloadMessage}</p>} {/* Mostrar mensaje de éxito */}
         </div>
       )}
     </Container>
