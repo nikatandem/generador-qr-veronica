@@ -293,5 +293,8 @@ pre tt:after {
     width: auto;
 
   }
+  .logo-image {
+    margin-left: 0px;
+  }
 
   }

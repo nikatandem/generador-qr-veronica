@@ -206,6 +206,7 @@ const QrCodeGenerator = () => {
       <p>Selecciona el tamaño (px):</p>
       <p className='subtexto'>*Tamaños recomendados: pequeño 100px, mediano 150px, grande 250px</p>
       <Input
+      className='selector'
         type="number"
         placeholder="Tamaño (px)"
         value={qrSize}
@@ -213,12 +214,14 @@ const QrCodeGenerator = () => {
       />
       <p>Selecciona el color de fondo en tono claro:</p>
       <Input
+      className='selector'
         type="color"
         value={qrBgColor}
         onChange={(e) => setQrBgColor(e.target.value)}
       />
       <p>Selecciona el color del código en tono oscuro:</p>
       <Input
+      className='selector'
         type="color"
         value={qrFgColor}
         onChange={(e) => setQrFgColor(e.target.value)}

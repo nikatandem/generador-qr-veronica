@@ -4,3 +4,6 @@ div #qrCode{
     align-items: center;
    
 }
+.selector{
+    width: 300px !important;
+}
