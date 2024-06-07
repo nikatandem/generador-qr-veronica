@@ -10,9 +10,8 @@ text-align: center ;
 .container-carrousel{
 
 display: block;
-padding: 2em;
-border: solid 2px #B41400;
-background-color: #b1b1b181;
+padding: 1.6em;
+background-color: #282828e8;
 width: 100%;
 }
 .carrousel{
