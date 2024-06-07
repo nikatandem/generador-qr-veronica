@@ -1,6 +1,5 @@
 
 .frame{
-    
     background-image: url("../../images/image2.jpg");
     background-color: rgba(255, 255, 255, 0.516); 
     background-blend-mode: lighten;
@@ -9,18 +8,19 @@
     height: 200px;
     width: auto;
     border: solid 1px #282828;
+    margin-bottom: 100px;
 }
 .container{
     display: inline-block;
-    padding: 40px;
+    padding: 30px;
     align-items: center;
     text-align: center;
     width: 100%;
-
+  
 }
 .btn{
     display: inline;
-    align-items: center;
+    
     background-color: #FFFFFF;
     border: double #B41400;
     border-radius: 0%;
@@ -28,7 +28,7 @@
     font-family:Century Gothic,serif;
     height: 40px;
     width: auto;
-    margin-left: 3.7%;
+    margin-left: 5%;
  
   }
  .btn:hover{
