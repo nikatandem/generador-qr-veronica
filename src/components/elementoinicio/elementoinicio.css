@@ -8,13 +8,11 @@
     background-size: cover;
     height: 200px;
     width: auto;
-    
     border: solid 1px #282828;
 }
 .container{
-    margin-top: 10%;
     display: inline-block;
-    padding: 6px;
+    padding: 40px;
     align-items: center;
     text-align: center;
     width: 100%;
@@ -38,4 +36,17 @@
     border: double  #ffffff;
     color:#ffffff;
 
+  }
+
+  @media screen and (max-width: 450px) {
+    .container{
+        display: inline-block;
+        padding: 10px;
+    }
+    .btn{
+        display: block;
+    }
+    .frame{
+        height: auto;
+    }
   }

@@ -48,8 +48,8 @@ function Acceso() {
 <Link to="/inicio">
    <button className="elemento-button" type="submit" disabled={enviado}>Acceder</button>
 </Link>
-      <p className="p-recuperar">¿Has olvidado tu contraseña?</p>
-      <button type="button" className="btn-recuperar" onClick={handleRecoverPasswordClick}>Recuperar clave de acceso</button>
+      <p className="p-recuperar">¿Has olvidado tu contraseña? <button type="button" className="btn-recuperar" onClick={handleRecoverPasswordClick}> Recuperar clave de acceso</button></p>
+      
 </div>
    
     </form>

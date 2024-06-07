@@ -101,7 +101,7 @@ function HamburgerMenuToggler({ toggle }) {
       type="button"
       aria-expanded="false"
       aria-label="Toggle navigation"
-      className={style.toggler}
+      className="toggle"
       onClick={toggle}
     >
       &#8801;

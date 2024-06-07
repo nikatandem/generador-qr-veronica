@@ -9,9 +9,9 @@ const IndexPage = () =>{
 return(
   <>
   <Layout>
-    <h2>Bienvenido al Generador de QR</h2>
+    <h2>Bienvenido al Generador de QR<Access/></h2>
 
-<Access/>
+
 <Slider/>
 <br/>
 <br/>

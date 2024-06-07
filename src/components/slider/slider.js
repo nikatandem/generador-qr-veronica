@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import styles from "./slider.module.css";
+import "./slider.css";
 import { StaticImage } from "gatsby-plugin-image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -16,6 +16,7 @@ function SliderCarrousel (){
     autoplaySpeed: 3000,
   };
   return (
+    <div className="container">
     <div className="container-carrousel">
       <Slider {...settings}>
         <div>
@@ -35,6 +36,7 @@ function SliderCarrousel (){
         </div>
 
       </Slider>
+    </div>
     </div>
   );
 }

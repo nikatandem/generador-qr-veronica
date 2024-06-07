@@ -9,7 +9,7 @@ const CrearQr = () =>{
       <>
       <Layout>
       <HamburgerMenuPage/>
-        <h1>Creando QR</h1>
+      <h1>Generador de Códigos QR</h1>
   <QrCodeGenerator/>
       </Layout>
     

@@ -12,3 +12,14 @@
     color: #282828;
     text-decoration: underline .5px;   
 }
+.toggle{
+    background-color: #FFFFFF;
+    border: double #B41400;
+    color: #B41400;
+    font-family: Century Gothic, serif;
+}
+.toggle:hover{
+    background-color: #B41400;
+    border: double #ffffff;
+    color: #ffffff;
+}

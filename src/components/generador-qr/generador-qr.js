@@ -1,8 +1,7 @@
-import React from "react";
-import { useState } from 'react';
+import React, { useState } from 'react';
 import QRCode from 'qrcode.react';
 import styled from 'styled-components';
-import { toPng } from 'html-to-image';
+import DownloadQRCode from "./descargar";
 
 
 const Container = styled.div`
@@ -10,7 +9,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  margin:0;
+  margin: 0;
 `;
 
 const Input = styled.input`
@@ -20,17 +19,17 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-    align-items: center;
+  align-items: center;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   background-color: #FFFFFF;
-  color:#B41400;
+  color: #B41400;
   border: double #B41400;
   &:hover {
     background-color: #B41400;
-    border: double  #ffffff;
-    color:#ffffff;
+    border: double #ffffff;
+    color: #ffffff;
   }
 `;
 
@@ -49,6 +48,10 @@ const Tab = styled.button`
   flex: 1;
   padding: 10px;
   cursor: pointer;
+  background-color: #FFFFFF;
+  border: double #B41400;
+  color: #B41400;
+  font-family: Century Gothic, serif;
   background: ${(props) => (props.isActive ? '#eee' : 'white')};
   border: none;
   border-bottom: ${(props) => (props.isActive ? '2px solid black' : 'none')};
@@ -65,7 +68,7 @@ const TabPanel = styled.div`
 const QrCodeGenerator = () => {
   const [inputValue, setInputValue] = useState('');
   const [qrValue, setQrValue] = useState('');
-  const [qrSize, setQrSize] = useState(256);
+  const [qrSize, setQrSize] = useState(250);
   const [qrBgColor, setQrBgColor] = useState('#ffffff');
   const [qrFgColor, setQrFgColor] = useState('#000000');
   const [activeTab, setActiveTab] = useState(0);
@@ -78,20 +81,6 @@ const QrCodeGenerator = () => {
     setQrValue(inputValue);
   };
 
-  const handleDownload = () => {
-    const qrCodeElement = document.getElementById('qrCode');
-    toPng(qrCodeElement)
-      .then((dataUrl) => {
-        const link = document.createElement('a');
-        link.download = 'qr-code.png';
-        link.href = dataUrl;
-        link.click();
-      })
-      .catch((err) => {
-        console.error('Error generating image: ', err);
-      });
-  };
-
   const handleTabClick = (index) => {
     setActiveTab(index);
     setInputValue('');
@@ -100,7 +89,7 @@ const QrCodeGenerator = () => {
 
   return (
     <Container>
-      <h1>Generador de Códigos QR</h1>
+     
       <TabContainer>
         <TabList>
           <Tab isActive={activeTab === 0} onClick={() => handleTabClick(0)}>Texto</Tab>
@@ -110,16 +99,16 @@ const QrCodeGenerator = () => {
           <Tab isActive={activeTab === 4} onClick={() => handleTabClick(4)}>Localización</Tab>
         </TabList>
         <TabPanel isActive={activeTab === 0}>
-            <p>Introduce la información</p>
+          <p>Introduce la información</p>
           <Input
             type="text"
-            placeholder="Inserte texto"
+            placeholder="Inserte un texto"
             value={inputValue}
             onChange={handleChange}
           />
         </TabPanel>
         <TabPanel isActive={activeTab === 1}>
-            <p>Introduce la URL</p>
+          <p>Introduce la URL</p>
           <Input
             type="text"
             placeholder="https://www.ejemplo.com"
@@ -128,7 +117,7 @@ const QrCodeGenerator = () => {
           />
         </TabPanel>
         <TabPanel isActive={activeTab === 2}>
-        <p>Introducce el número de teléfono</p>
+          <p>Introduce el número de teléfono</p>
           <Input
             type="text"
             placeholder="912 345 678"
@@ -137,7 +126,7 @@ const QrCodeGenerator = () => {
           />
         </TabPanel>
         <TabPanel isActive={activeTab === 3}>
-        <p>Introducce la dirección de e-mail</p>
+          <p>Introduce la dirección de e-mail</p>
           <Input
             type="text"
             placeholder="ejemplo@hotmail.com"
@@ -146,48 +135,43 @@ const QrCodeGenerator = () => {
           />
         </TabPanel>
         <TabPanel isActive={activeTab === 4}>
-            <p>Introducce las coordenadas</p>
+          <p>Introduce las coordenadas</p>
           <Input
             type="text"
-            placeholder="Latitud: 41 24.2028"
+            placeholder="Latitud (41 24.2028), Longitud (2 10.4418)"
             value={inputValue}
             onChange={handleChange}
           />
-          <Input
-            type="text"
-            placeholder="Longitud: 2 10.4418"
-            value={inputValue}
-            onChange={handleChange}
-          />
+        
         </TabPanel>
       </TabContainer>
       <p>Selecciona el tamaño (px):</p>
+      <p className='subtexto'>*Tamaños recomendados: pequeño 100px, mediano 150px, grande 250px</p>
       <Input
         type="number"
         placeholder="Tamaño (px)"
         value={qrSize}
         onChange={(e) => setQrSize(e.target.value)}
       />
-      <p>Selecciona el color de fondo:</p>
+      <p>Selecciona el color de fondo en tono claro:</p>
       <Input
         type="color"
         value={qrBgColor}
         onChange={(e) => setQrBgColor(e.target.value)}
       />
-    <p>Selecciona el color del código:</p>
+      <p>Selecciona el color del código  en tono oscuro:</p>
       <Input
         type="color"
         value={qrFgColor}
         onChange={(e) => setQrFgColor(e.target.value)}
       />
-     
       <Button onClick={handleGenerate}>Generar Código QR</Button>
       {qrValue && (
         <div>
           <div id="qrCode">
             <QRCode value={qrValue} size={qrSize} bgColor={qrBgColor} fgColor={qrFgColor} />
           </div>
-          <Button onClick={handleDownload}>Descargar Código QR</Button>
+          <DownloadQRCode qrValue={qrValue} qrSize={qrSize} qrBgColor={qrBgColor} qrFgColor={qrFgColor} />
         </div>
       )}
     </Container>
