@@ -20,6 +20,7 @@ module.exports = {
     },
     `styled-components`,
     `html-to-image`,
-    `file-saver`
+    `file-saver`,
+    `downloadjs`
   ],
 }

@@ -23,10 +23,10 @@
 } 
 
 .logo-image {
-  margin-left: 3px;
+  margin-left: 33px;
   background-color: #FFFFFF;
-  height: calc(100% - 20px); 
-;
+  height: calc(100% - 20px);
+  border-left: solid 6px #282828; 
 }
 
 label {
@@ -132,14 +132,10 @@ footer {
   width: 100%; /* Asegurar que el footer ocupe el 100% del ancho */
   padding: 10px 0;
   text-align: center;
-  margin: 0; /* Eliminar márgenes */
+ 
 }
 
-.foot {
-  width: 100%;
-  margin: 0; /* Eliminar márgenes */
-  height: auto;
-}
+
 
 /* img {
   border-style: none;
@@ -281,6 +277,7 @@ pre tt:after {
   body{
     color:#282828;
     background-color: #FFFFFF;
+    margin-right: 0%;
   }
   label{
     padding: 1em;
@@ -292,6 +289,9 @@ pre tt:after {
   button{
     margin-bottom: 2em;
     margin-top: 2em;
+    align-items: center;
+    width: auto;
+
   }
-  
+
   }
