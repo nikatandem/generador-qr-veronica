@@ -250,8 +250,14 @@ const QrCodeGenerator = () => {
         <div>
           <div id="qrCode" ref={qrRef}>
             <QRCode value={qrValue} size={qrSize} bgColor={qrBgColor} fgColor={qrFgColor} />
-          </div>
+          </div>  
+          <div>
+            <p className='contenido-revision'>El contenido introducido es el siguiente:</p>
+          <div style={{ border: '1px solid #282828', padding: '10px', marginTop: '10px' }}>
           
+            <p className='subtexto'>{inputValue}</p>
+          </div>
+          </div>
           <div className="radio-group">
             <hr/>
             <h4>Selecciona el formato para descargar el QR</h4>
