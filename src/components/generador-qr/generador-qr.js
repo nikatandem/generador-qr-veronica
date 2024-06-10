@@ -127,7 +127,7 @@ const QrCodeGenerator = () => {
 
   const handleGenerate = () => {
     if (inputValue.trim() === '') {
-      setWarningMessage('Por favor, rellena el campo de entrada.');
+      setWarningMessage('Por favor, rellena este campo');
       return;
     }
     setQrValue(inputValue);
@@ -178,7 +178,7 @@ const QrCodeGenerator = () => {
             placeholder="Inserte un texto"
             value={inputValue}
             onChange={handleChange}
-            style={{ borderColor: warningMessage && inputValue.trim() === '' ? ' #B41400' : '' }}
+            style={{ borderColor: WarningMessage && inputValue.trim() === '' ? ' #B41400' : '' }}
           />
         </TabPanel>
         <TabPanel isActive={activeTab === 1}>
