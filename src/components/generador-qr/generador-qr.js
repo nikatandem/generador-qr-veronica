@@ -178,8 +178,10 @@ const QrCodeGenerator = () => {
             placeholder="Inserte un texto"
             value={inputValue}
             onChange={handleChange}
-            style={{ borderColor: warningMessage && inputValue.trim() === '' ? ' #B41400' : '' }}
-          />
+            style={{ borderColor: warningMessage ? '#B41400' : '' }}
+            />
+            {warningMessage && <span style={{ color: '#B41400' }}>{warningMessage}</span>}
+
         </TabPanel>
         <TabPanel isActive={activeTab === 1}>
           <p>Introduce la URL</p>
@@ -188,8 +190,9 @@ const QrCodeGenerator = () => {
             placeholder="https://www.ejemplo.com"
             value={inputValue}
             onChange={handleChange}
-            style={{ borderColor: warningMessage && inputValue.trim() === '' ? ' #B41400' : '' }}
+            style={{ borderColor: warningMessage ? '#B41400' : '' }}
           />
+          {warningMessage && <span style={{ color: '#B41400' }}>{warningMessage}</span>}
         </TabPanel>
         <TabPanel isActive={activeTab === 2}>
           <p>Introduce el número de teléfono</p>
@@ -200,6 +203,7 @@ const QrCodeGenerator = () => {
             onChange={handleChange}
             style={{ borderColor: warningMessage && inputValue.trim() === '' ? ' #B41400' : '' }}
           />
+            {warningMessage && <span style={{ color: '#B41400' }}>{warningMessage}</span>}
         </TabPanel>
         <TabPanel isActive={activeTab === 3}>
           <p>Introduce la dirección de e-mail</p>
@@ -210,6 +214,7 @@ const QrCodeGenerator = () => {
             onChange={handleChange}
             style={{ borderColor: warningMessage && inputValue.trim() === '' ? ' #B41400' : '' }}
           />
+            {warningMessage && <span style={{ color: '#B41400' }}>{warningMessage}</span>}
         </TabPanel>
         <TabPanel isActive={activeTab === 4}>
           <p>Introduce las coordenadas</p>
@@ -218,8 +223,9 @@ const QrCodeGenerator = () => {
             placeholder="Latitud (41 24.2028), Longitud (2 10.4418)"
             value={inputValue}
             onChange={handleChange}
-            style={{ borderColor: warningMessage && inputValue.trim() === '' ? ' #B41400' : '' }}
-          />
+            style={{ borderColor: warningMessage ? '#B41400' : '' }}
+            />
+            {warningMessage && <span style={{ color: '#B41400' }}>{warningMessage}</span>}
         </TabPanel>
       </TabContainer>
       <p>Selecciona el tamaño (px):</p>
