@@ -178,7 +178,7 @@ const QrCodeGenerator = () => {
             placeholder="Inserte un texto"
             value={inputValue}
             onChange={handleChange}
-            style={{ borderColor: WarningMessage && inputValue.trim() === '' ? ' #B41400' : '' }}
+            style={{ borderColor: warningMessage && inputValue.trim() === '' ? ' #B41400' : '' }}
           />
         </TabPanel>
         <TabPanel isActive={activeTab === 1}>
