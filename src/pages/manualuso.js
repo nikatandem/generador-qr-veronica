@@ -23,7 +23,7 @@ const Manual = () =>{
             <hr/>
             <div className="contenido">
                 <h3 id="introduccion" className="titulo3">INTRODUCCIÓN</h3>
-                <p className="texto">Nuestra web de creación de códigos QR es una herramienta sencilla y poderosa para generar códigos QR personalizados. Puedes crear códigos para enlaces, textos, vCards, ubicaciones, eventos, y mucho más. Este manual te guiará paso a paso para aprovechar al máximo todas las funciones disponibles.</p>
+                <p className="texto">Nuestra web de creación de códigos QR es una herramienta sencilla y poderosa para generar códigos QR personalizados. Puedes crear códigos para enlaces, textos, ubicaciones, eventos, y mucho más. Este manual te guiará paso a paso para aprovechar al máximo todas las funciones disponibles.</p>
                 
                 <h3 id="inicio-sesion" className="titulo3">INICIO DE SESIÓN</h3>
                 <h4 className="titulo4">Inicio de Sesión:</h4>
