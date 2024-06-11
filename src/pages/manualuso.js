@@ -15,7 +15,7 @@ const Manual = () =>{
                 <li><a href="#introduccion" id="enlace">Introducción</a></li>
                 <li><a href="#inicio-sesion" id="enlace">Registro e Inicio de Sesión</a></li>
                 <li><a href="#panel-control" id="enlace">Panel de Control</a></li>
-                <li><a href="#creacion-codigos">Creación de Códigos QR: Generar Código QR Básico</a></li>
+                <li><a href="#creacion-codigos"  id="enlace">Creación de Códigos QR: Generar Código QR Básico</a></li>
                 <li><a href="#opciones-avanzadas" id="enlace">Opciones Avanzadas</a></li>
                 <li><a href="#personalizacion" id="enlace">Personalización de Códigos QR: Modificar tamaño, Cambiar Color</a></li>
                 <li><a href="#gestion-codigos" id="enlace">Gestión de Códigos QR: Guardar y Descargar</a></li>
