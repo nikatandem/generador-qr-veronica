@@ -19,7 +19,7 @@ const Manual = () =>{
             <li>Panel de Control</li>
             <li>Creación de Códigos QR: Generar Código QR Básico</li>
             <li>Opciones Avanzadas</li>
-            <li>Personalización de Códigos QR:Cambiar Color, Agregar Logotipo, Modificar Estilo </li>
+            <li>Personalización de Códigos QR: Modificar tamaño, Cambiar Color </li>
             <li>Gestión de Códigos QR: Guardar y Descargar</li>
          
 
@@ -61,19 +61,14 @@ const Manual = () =>{
             <p className="texto">Antes de generar el código, puedes acceder a opciones avanzadas como la corrección de errores y el tamaño del código.
             Ajusta la corrección de errores (L, M, Q, H) según el nivel de resistencia al daño que necesites.</p>
         <h3 className="titulo3">PERSONALIZACIÓN DE CÓDIGOS QR</h3>
-        <h4 className="titulo4">Cambiar Color</h4>
+        <h4 className="titulo4">Modificar Tamaño</h4>
+            <h5 className="titulo5">Seleccionar Tamaño:</h5>
+            <p className="texto">Elige entre diferentes tamaños para tu código y visualiza los cambios en tiempo real.</p>
+        <h4 className="titulo4">Cambiar Color</h4> 
             <h5 className="titulo5">Seleccionar Colores:</h5>
             <p className="texto">En la sección de personalización, elige los colores para el fondo y el primer plano del código QR.
             Utiliza el selector de color o introduce los códigos hexadecimales de los colores deseados.</p>
-
-        <h4 className="titulo4">Agregar Logotipo</h4>
-            <h5 className="titulo5">Subir Logotipo:</h5>
-            <p className="texto">Haz clic en "Agregar Logotipo" y selecciona la imagen de tu logotipo desde tu dispositivo.
-            Ajusta el tamaño y la posición del logotipo dentro del código QR.</p>
-        <h4 className="titulo4">Modificar Estilo</h4>
-            <h5 className="titulo5">Seleccionar Estilo:</h5>
-            <p className="texto">Elige entre diferentes estilos de patrones para los puntos y los ojos del código QR.
-            Visualiza los cambios en tiempo real.</p>
+      
             <StaticImage src="../images/personalizacion.jpg"/>
         <h3 className="titulo3">GESTIÓN DE CÓDIGOS QR</h3>
         <h4 className="titulo4">Guardar y Descargar</h4>
