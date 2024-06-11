@@ -12,13 +12,13 @@ const Manual = () =>{
             <h1 className="titulo">Bienvenido al manual de uso de nuestra web de creación de códigos QR. </h1>
             <h2 className="titulo2">Esta guía te ayudará a entender todas las funcionalidades y características de la plataforma, para que puedas generar códigos QR de manera efectiva y personalizada.</h2>
             <ul>
-                <li><a href="#introduccion">Introducción</a></li>
-                <li><a href="#inicio-sesion">Registro e Inicio de Sesión</a></li>
-                <li><a href="#panel-control">Panel de Control</a></li>
+                <li><a href="#introduccion" id="enlace">Introducción</a></li>
+                <li><a href="#inicio-sesion" id="enlace">Registro e Inicio de Sesión</a></li>
+                <li><a href="#panel-control" id="enlace">Panel de Control</a></li>
                 <li><a href="#creacion-codigos">Creación de Códigos QR: Generar Código QR Básico</a></li>
-                <li><a href="#opciones-avanzadas">Opciones Avanzadas</a></li>
-                <li><a href="#personalizacion">Personalización de Códigos QR: Modificar tamaño, Cambiar Color</a></li>
-                <li><a href="#gestion-codigos">Gestión de Códigos QR: Guardar y Descargar</a></li>
+                <li><a href="#opciones-avanzadas" id="enlace">Opciones Avanzadas</a></li>
+                <li><a href="#personalizacion" id="enlace">Personalización de Códigos QR: Modificar tamaño, Cambiar Color</a></li>
+                <li><a href="#gestion-codigos" id="enlace">Gestión de Códigos QR: Guardar y Descargar</a></li>
             </ul>
             <hr/>
             <div className="contenido">
