@@ -32,7 +32,7 @@ export const HamburgerMenuPage = () => {
                 </Link>
              </div>
              <div className="menu-item-2">
-             <Link to="#">
+             <Link to="/manualuso">
                
                  <a className="text-wapper-2">Manual de uso</a>
                </Link>

@@ -7,7 +7,7 @@ function FrameInicio(){
         <div className="frame">
             <div className="container">
                 <Link to="/crear-qr"><buttton type="submit" className="btn">Crear QR</buttton></Link>
-                <Link><buttton type="submit" className="btn">Manual de uso</buttton></Link>
+                <Link to="/manualuso"><buttton type="submit" className="btn">Manual de uso</buttton></Link>
                 <Link><buttton type="submit" className="btn">Historial QR</buttton></Link>
                 <Link><buttton type="submit" className="btn">Ajustes</buttton></Link>
 

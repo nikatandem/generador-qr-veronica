@@ -1,0 +1,41 @@
+.titulo{
+    color: #282828;
+    font-size: 22px;
+}
+.titulo2{
+    color: #282828;
+    font-size: 19px;
+    text-align: justify;
+}
+.titulo3{
+    color: #282828;
+    font-size: 17px;
+    font-weight: 500;
+    text-decoration: underline;
+
+}
+.titulo4{
+    color: #B41400;
+    font-size: 16px;
+    font-weight: 400;
+
+}
+.titulo5{
+    color: #272727;
+    font-size: 15px;
+    font-weight: 300;
+
+}
+.texto{
+    color: #282828;
+    font-size: 14px;
+    text-align: justify;
+
+}
+.contenido{
+
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
