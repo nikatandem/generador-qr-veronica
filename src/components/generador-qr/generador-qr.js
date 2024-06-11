@@ -7,7 +7,6 @@ import "./tabs.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 const Container = styled.div`
  display: flex;
   flex-direction: column;
@@ -22,7 +21,7 @@ const Container = styled.div`
 `;
 
 const Input = styled.input`
-padding: 10px;
+  padding: 10px;
   font-size: 16px;
   width: 50%;
 
@@ -83,7 +82,8 @@ const Tab = styled.button`
   color: #B41400; 
   font-family: Century Gothic, serif; 
   background: ${(props) => (props.isActive ? '#eee' : 'white')}; 
-  border: none; border-bottom: ${(props) => (props.isActive ? '2px solid black' : 'none')}; 
+  border: none; 
+  border-bottom: ${(props) => (props.isActive ? '2px solid black' : 'none')}; 
   &:focus { outline: none; } 
 
   @media (min-width:320px) {
@@ -94,10 +94,10 @@ const Tab = styled.button`
 `;
 
 const TabPanel = styled.div` 
-margin-left:32%; 
-display: ${(props) => (props.isActive ? 'block' : 'none')}; 
-padding: 10px; 
-width:auto; 
+  margin-left:32%; 
+  display: ${(props) => (props.isActive ? 'block' : 'none')}; 
+  padding: 10px; 
+  width:auto; 
 
   @media (min-width:320px) {
     padding: 1.5px;
@@ -105,9 +105,6 @@ width:auto;
     margin: 10%;
   }
 `;
-
-
-
 
 const QrCodeGenerator = () => {
   const [inputValue, setInputValue] = useState('');
@@ -119,6 +116,7 @@ const QrCodeGenerator = () => {
   const [selectedFormat, setSelectedFormat] = useState('png');
   const [downloadMessage, setDownloadMessage] = useState(''); 
   const [warningMessage, setWarningMessage] = useState(''); 
+  const [fileName, setFileName] = useState('qr-code'); // Nuevo estado para el nombre del archivo
   const qrRef = useRef(null);
 
   const handleChange = (e) => {
@@ -156,7 +154,7 @@ const QrCodeGenerator = () => {
       } else if (selectedFormat === 'svg') {
         dataUrl = await toSvg(node);
       }
-      download(dataUrl, `qr-code.${selectedFormat}`);
+      download(dataUrl, `${fileName}.${selectedFormat}`);
       setDownloadMessage('Su QR se ha descargado con éxito');
     }
   };
@@ -251,6 +249,7 @@ const QrCodeGenerator = () => {
         value={qrFgColor}
         onChange={(e) => setQrFgColor(e.target.value)}
       />
+   
       <Button onClick={handleGenerate}>Generar Código QR</Button>
       {qrValue && (
         <div>
@@ -266,6 +265,14 @@ const QrCodeGenerator = () => {
           </div>
           <div className="radio-group">
             <hr/>
+            <h4>Introduce el nombre del archivo:</h4> 
+      <Input
+        className='selector'
+        type="text"
+        placeholder="Nombre del archivo"
+        value={fileName}
+        onChange={(e) => setFileName(e.target.value)}
+      />
             <h4>Selecciona el formato para descargar el QR</h4>
             <label>
               <input
