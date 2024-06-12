@@ -6,6 +6,7 @@ import { toPng, toJpeg, toSvg } from 'html-to-image';
 import "./tabs.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import MapaConMarcador from "./mapa"
 
 const Container = styled.div`
  display: flex;
@@ -75,7 +76,7 @@ const TabList = styled.div`
 
 const Tab = styled.button`
   flex: 1; 
-  padding: 5px; 
+  padding: 3px; 
   cursor: pointer; 
   background-color: #FFFFFF; 
   border: double #B41400; 
@@ -158,6 +159,7 @@ const QrCodeGenerator = () => {
       setDownloadMessage('Su QR se ha descargado con éxito');
     }
   };
+  const [latLng, setLatLng] = useState(null);
 
   return (
     <Container>
@@ -224,6 +226,21 @@ const QrCodeGenerator = () => {
             style={{ borderColor: warningMessage ? '#B41400' : '' }}
             />
             {warningMessage && <span style={{ color: '#B41400' }}>{warningMessage}</span>}
+            <div>
+
+<MapaConMarcador setLatLng={setLatLng} />
+<div className="coordinates">
+  {latLng ? (
+    <p>
+      Latitud: {latLng.lat}, Longitud: {latLng.lng}
+    </p>
+  ) : (
+    <p>Haz clic en el mapa para obtener las coordenadas</p>
+  )}
+</div>
+</div>
+
+
         </TabPanel>
       </TabContainer>
       <p>Selecciona el tamaño (px):</p>
