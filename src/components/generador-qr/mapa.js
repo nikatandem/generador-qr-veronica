@@ -7,17 +7,18 @@ import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
-// **Conditional check for window access**: This ensures code using `window` only runs in the browser.
 if (typeof window !== 'undefined') {
-    var requestFn = window.requestAnimationFrame || // Removed as they were causing errors
-  
+    var requestFn = window.requestAnimationFrame || getPrefixed('RequestAnimationFrame') || timeoutDefer;
+    var cancelFn = window.cancelAnimationFrame || getPrefixed('CancelAnimationFrame') ||
+      getPrefixed('CancelRequestAnimationFrame') || function (id) { window.clearTimeout(id); };
+  }
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconUrl,
   iconRetinaUrl,
   shadowUrl,
-});}
+});
 
 const LocationMarker = ({ setLatLng }) => {
   const map = useMap();
