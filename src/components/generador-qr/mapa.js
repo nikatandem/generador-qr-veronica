@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-// Arreglar el problema de los iconos que no se muestran
+import { getPrefixed, timeoutDefer } from '../../../utils'; // Ajusta la ruta según sea necesario
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
@@ -27,10 +27,13 @@ const LocationMarker = ({ setLatLng }) => {
 
 const MapaConMarcador = ({ setLatLng }) => {
     useEffect(() => {
-        var requestFn = window.requestAnimationFrame || getPrefixed('RequestAnimationFrame') || timeoutDefer;
-        var cancelFn = window.cancelAnimationFrame || getPrefixed('CancelAnimationFrame') || getPrefixed('CancelRequestAnimationFrame') || function (id) { window.clearTimeout(id); };
-        // El resto de tu código que usa `window` aquí
-      }, []);
+        if (typeof window !== 'undefined') {
+            const requestFn = window.requestAnimationFrame || getPrefixed('requestAnimationFrame') || timeoutDefer;
+            const cancelFn = window.cancelAnimationFrame || getPrefixed('cancelAnimationFrame') || getPrefixed('cancelRequestAnimationFrame') || function (id) { window.clearTimeout(id); };
+            // El resto de tu código que usa `window` aquí
+        }
+    }, []);
+    
     return (
         <MapContainer center={[40.030501, -3.604052]} zoom={13} style={{ height: '50vh', width: '100%' }}>
             <TileLayer
@@ -42,6 +45,4 @@ const MapaConMarcador = ({ setLatLng }) => {
     );
 };
 
-
 export default MapaConMarcador;
-
