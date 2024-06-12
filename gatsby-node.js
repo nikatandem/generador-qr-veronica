@@ -9,7 +9,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
         module: {
           rules: [
             {
-              test: /react-leaflet/,
+              test: /react-leaflet|leaflet/,
               use: loaders.null(),
             },
           ],

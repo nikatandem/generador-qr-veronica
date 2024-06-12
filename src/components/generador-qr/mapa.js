@@ -30,7 +30,8 @@ const MapaConMarcador = ({ setLatLng }) => {
         if (typeof window !== 'undefined') {
             const requestFn = window.requestAnimationFrame || getPrefixed('requestAnimationFrame') || timeoutDefer;
             const cancelFn = window.cancelAnimationFrame || getPrefixed('cancelAnimationFrame') || getPrefixed('cancelRequestAnimationFrame') || function (id) { window.clearTimeout(id); };
-            // El resto de tu código que usa `window` aquí
+            // Aquí puedes añadir cualquier otro código que use `window`.
+            console.log('El código que usa `window` se está ejecutando.');
         }
     }, []);
     
