@@ -7,10 +7,12 @@ import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
+
 if (typeof window !== 'undefined') {
-    var requestFn = window.requestAnimationFrame || getPrefixed('RequestAnimationFrame') || timeoutDefer;
-    var cancelFn = window.cancelAnimationFrame || getPrefixed('CancelAnimationFrame') ||
-      getPrefixed('CancelRequestAnimationFrame') || function (id) { window.clearTimeout(id); };
+    let requestFn = window.requestAnimationFrame || function (callback) {
+      return setTimeout(callback, 16); // Fallback for older browsers
+    };
+    let cancelFn = window.cancelAnimationFrame || clearTimeout;
   }
 
 delete L.Icon.Default.prototype._getIconUrl;
