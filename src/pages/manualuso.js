@@ -31,7 +31,7 @@ const Manual = () =>{
                 Introduce tu correo electrónico y contraseña registrados.
                 Haz clic en "Iniciar Sesión". Al introducir sus datos de usuario puede "Acceder"</p>
                 <StaticImage src="../images/iniciosesion.jpg"/>
-                <StaticImage src="../images/acceder.jpg.jpg"/>
+                <StaticImage src="../images/acceder.jpg"/>
                 <h4 className="titulo4">Recuperar contraseña:</h4>
                 <p className="texto">Pulsa en el botón de Recuperar Contraseña para poder introducir tu correo electrónico y recibir un enlace de reestablecimiento de contrseña.</p>  
                 <StaticImage src="../images/recuperar-contraseña.jpg"/>  
