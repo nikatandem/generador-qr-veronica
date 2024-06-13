@@ -76,7 +76,8 @@ const TabList = styled.div`
 
 const Tab = styled.button`
   flex: 1; 
-  padding: 3px; 
+  padding: 1px; 
+  height: 50px;
   cursor: pointer; 
   background-color: #FFFFFF; 
   border: double #B41400; 
@@ -97,8 +98,10 @@ const Tab = styled.button`
 const TabPanel = styled.div` 
   margin-left:32%; 
   display: ${(props) => (props.isActive ? 'block' : 'none')}; 
-  padding: 10px; 
-  width:auto; 
+  padding: 5px; 
+  width:auto;
+  height: 260px; 
+  margin-top: 0px;
 
   @media (min-width:320px) {
     padding: 1.5px;
@@ -223,7 +226,7 @@ const QrCodeGenerator = () => {
             placeholder="Latitud (41 24.2028), Longitud (2 10.4418)"
             value={inputValue}
             onChange={handleChange}
-            style={{ borderColor: warningMessage ? '#B41400' : '' }}
+            style={{ borderColor: warningMessage ? '#B41400' : '' , margin: '0px 3px 0px 0px'}}
             />
             {warningMessage && <span style={{ color: '#B41400' }}>{warningMessage}</span>}
             <div>

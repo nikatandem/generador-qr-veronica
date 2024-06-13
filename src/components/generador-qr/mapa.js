@@ -52,7 +52,8 @@ const MapaConMarcador = ({ setLatLng }) => {
   return (
     <>
       {isClient && (
-        <MapContainer center={[40.030501, -3.604052]} zoom={13} style={{ height: '50vh', width: '100%' }}>
+        <MapContainer center={[40.030501, -3.604052]} zoom={15} style={{ height: '30vh', width: '100%', margin: '10px 0px 0px 0px'
+         }}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
