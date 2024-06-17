@@ -5,7 +5,8 @@
 display: inline-block ;
 align-items: center ;
 text-align: center ;
-    margin-left: 6% ;
+margin-left: 6% ;
+
 }
 .container-carrousel{
 
@@ -14,6 +15,9 @@ padding-right: 1.5em;
 padding-left: 1.5em;
 background-color: #282828;
 width: 100%;
+margin-top: -35px;
+margin-bottom: -40px;
+
 }
 .carrousel{
     align-items: center;

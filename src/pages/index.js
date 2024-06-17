@@ -10,10 +10,7 @@ return(
   <Layout>
     <h2>Bienvenido al Generador de QR<Access/></h2>
 
-
 <Slider/>
-<br/>
-<br/>
 <ButtonInfo/>
   </Layout>
 

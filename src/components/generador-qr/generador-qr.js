@@ -221,13 +221,8 @@ const QrCodeGenerator = () => {
         </TabPanel>
         <TabPanel isActive={activeTab === 4}>
           <p>Introduce las coordenadas</p>
-          <Input
-            type="text"
-            placeholder="Latitud (41 24.2028), Longitud (2 10.4418)"
-            value={inputValue}
-            onChange={handleChange}
-            style={{ borderColor: warningMessage ? '#B41400' : '' , margin: '0px 3px 0px 0px'}}
-            />
+          <input type="text" placeholder="Latitud" id="latitude" name="latitude" value="" style={{ borderColor: warningMessage ? '#B41400' : '' , margin: '0px 3px 0px 0px'}}/>
+          <input type="text" placeholder="Longitud" id="longitude" name="longitude" value="" style={{ borderColor: warningMessage ? '#B41400' : '' , margin: '0px 3px 0px 0px'}}/>
             {warningMessage && <span style={{ color: '#B41400' }}>{warningMessage}</span>}
             <div>
 
