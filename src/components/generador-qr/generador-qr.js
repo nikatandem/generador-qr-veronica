@@ -123,6 +123,8 @@ const QrCodeGenerator = () => {
   const [fileName, setFileName] = useState('qr-code'); // Nuevo estado para el nombre del archivo
   const qrRef = useRef(null);
 
+  const [latLng, setLatLng] = useState({ lat: '', lng: '' });
+  
   const handleChange = (e) => {
     setInputValue(e.target.value);
   };
@@ -162,7 +164,7 @@ const QrCodeGenerator = () => {
       setDownloadMessage('Su QR se ha descargado con éxito');
     }
   };
-  const [latLng, setLatLng] = useState(null);
+
 
   return (
     <Container>
@@ -221,25 +223,39 @@ const QrCodeGenerator = () => {
         </TabPanel>
         <TabPanel isActive={activeTab === 4}>
           <p>Introduce las coordenadas</p>
-          <input type="text" placeholder="Latitud" id="latitude" name="latitude" value="" style={{ borderColor: warningMessage ? '#B41400' : '' , margin: '0px 3px 0px 0px'}}/>
-          <input type="text" placeholder="Longitud" id="longitude" name="longitude" value="" style={{ borderColor: warningMessage ? '#B41400' : '' , margin: '0px 3px 0px 0px'}}/>
-            {warningMessage && <span style={{ color: '#B41400' }}>{warningMessage}</span>}
-            <div>
-
-<MapaConMarcador setLatLng={setLatLng} />
-<div className="coordinates">
-  {latLng ? (
-    <p>
-      Latitud: {latLng.lat}, Longitud: {latLng.lng}
-    </p>
-  ) : (
-    <p>Haz clic en el mapa para obtener las coordenadas</p>
-  )}
-</div>
-</div>
-
-
+          <Input
+            type="text"
+            placeholder="Latitud"
+            id="latitude"
+            name="latitude"
+            value={latLng.lat}
+            onChange={(e) => setLatLng({ ...latLng, lat: e.target.value })}
+            style={{ borderColor: warningMessage ? '#B41400' : '', margin: '0 3px 0 0' }}
+          />
+          <Input
+            type="text"
+            placeholder="Longitud"
+            id="longitude"
+            name="longitude"
+            value={latLng.lng}
+            onChange={(e) => setLatLng({ ...latLng, lng: e.target.value })}
+            style={{ borderColor: warningMessage ? '#B41400' : '', margin: '0 3px 0 0' }}
+          />
+          {warningMessage && <span style={{ color: '#B41400' }}>{warningMessage}</span>}
+          <div>
+            <MapaConMarcador setLatLng={setLatLng} />
+            <div className="coordinates">
+              {latLng.lat && latLng.lng ? (
+                <p>
+                  Latitud: {latLng.lat}, Longitud: {latLng.lng}
+                </p>
+              ) : (
+                <p>Haz clic en el mapa para obtener las coordenadas</p>
+              )}
+            </div>
+          </div>
         </TabPanel>
+
       </TabContainer>
       <p>Selecciona el tamaño (px):</p>
       <p className='subtexto'>*Tamaños recomendados: pequeño 100px, mediano 150px, grande 250px</p>
