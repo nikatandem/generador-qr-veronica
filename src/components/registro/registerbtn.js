@@ -4,9 +4,13 @@ import "./register.css"
 
 function Register(){
 return(
-    <div><Link to="/registro">
+ 
+     <Link to="/registro">
     <button className="btn">Crear cuenta</button>
-    </Link></div>
+    </Link>
+
+
+    
     
 )
 }

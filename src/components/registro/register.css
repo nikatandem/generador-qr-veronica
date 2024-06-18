@@ -34,18 +34,25 @@ outline-width: 0;
 text-decoration: none;
 color: #282828 !important;
   }
-.btn{
-text-align: center;
-  margin-top: 10px;
-  margin-bottom: 0px;
-  align-items: center;
-  margin-left: 0px;
-}
+  .btn{
+    display: inline;  
+    position:relative;
+    text-align: center;
+    align-items: center;
+    margin-top: 5px;
+   
+  }
 
 @media screen and (max-width: 450px) {
   .btn{
+    display: inline;  
+    position:relative;
+    text-align: center;
+    align-items: center;
     margin-top: 10px;
     margin-bottom: 10px;
+   
+
   }
   input{
     display: block;
