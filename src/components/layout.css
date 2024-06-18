@@ -265,11 +265,11 @@ pre tt:after {
   content: none;
 } */
 ::placeholder{
-  font-size: small;
+  font-size: 14px;
   font-style: italic;
 }
 .subtexto{
-  font-size: small;
+  font-size: 14px;
   font-style: italic;
 }
 

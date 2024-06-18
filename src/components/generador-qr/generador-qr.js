@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import download from "downloadjs";
 import { toPng, toJpeg, toSvg } from 'html-to-image';
 import "./tabs.css";
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import MapaConMarcador from "./mapa"
 
@@ -24,7 +23,7 @@ const Container = styled.div`
 const Input = styled.input`
   padding: 10px;
   font-size: 16px;
-  width: 50%;
+  width: 100%;
 
   @media (min-width:320px) {
     width: 100%;
@@ -76,7 +75,7 @@ const TabList = styled.div`
 
 const Tab = styled.button`
   flex: 1; 
-  padding: 1px; 
+  padding: 15px; 
   height: 50px;
   cursor: pointer; 
   background-color: #FFFFFF; 
@@ -89,24 +88,23 @@ const Tab = styled.button`
   &:focus { outline: none; } 
 
   @media (min-width:320px) {
-    padding: 3px;
-    font-size: 14px;
+    
+    font-size: 16px;
     margin:  3px 2px 0px 2px;
   }
 `;
 
 const TabPanel = styled.div` 
-  margin-left:32%; 
+  margin-left:5%; 
   display: ${(props) => (props.isActive ? 'block' : 'none')}; 
-  padding: 5px; 
+  padding: 0px; 
   width:auto;
-  height: 260px; 
+  height: auto; 
   margin-top: 0px;
 
   @media (min-width:320px) {
     padding: 1.5px;
     width: 100%;
-    margin: 10%;
   }
 `;
 
@@ -179,67 +177,73 @@ const QrCodeGenerator = () => {
         <TabPanel isActive={activeTab === 0}>
           <p>Introduce la información</p>
           <Input
+           className='dato'
             type="text"
             placeholder="Inserte un texto"
             value={inputValue}
             onChange={handleChange}
-            style={{ borderColor: warningMessage ? '#B41400' : '' }}
-            />
-            {warningMessage && <span style={{ color: '#B41400' }}>{warningMessage}</span>}
+            style={{ borderColor: warningMessage ? '#B41400' : '', margin: '0' }}/>
 
         </TabPanel>
         <TabPanel isActive={activeTab === 1}>
           <p>Introduce la URL</p>
           <Input
+           className='dato'
             type="text"
             placeholder="https://www.ejemplo.com"
             value={inputValue}
             onChange={handleChange}
-            style={{ borderColor: warningMessage ? '#B41400' : '' }}
+            style={{ borderColor: warningMessage ? '#B41400' : '', margin: '0' }}
           />
           {warningMessage && <span style={{ color: '#B41400' }}>{warningMessage}</span>}
         </TabPanel>
         <TabPanel isActive={activeTab === 2}>
           <p>Introduce el número de teléfono</p>
           <Input
+           className='dato'
             type="text"
             placeholder="912 345 678"
             value={inputValue}
             onChange={handleChange}
-            style={{ borderColor: warningMessage && inputValue.trim() === '' ? ' #B41400' : '' }}
+            style={{ borderColor: warningMessage ? '#B41400' : '', margin: '0' }}
           />
             {warningMessage && <span style={{ color: '#B41400' }}>{warningMessage}</span>}
         </TabPanel>
         <TabPanel isActive={activeTab === 3}>
           <p>Introduce la dirección de e-mail</p>
           <Input
+           className='dato'
             type="text"
             placeholder="ejemplo@hotmail.com"
             value={inputValue}
             onChange={handleChange}
-            style={{ borderColor: warningMessage && inputValue.trim() === '' ? ' #B41400' : '' }}
+            style={{ borderColor: warningMessage ? '#B41400' : '', margin: '0' }}
+
+
           />
             {warningMessage && <span style={{ color: '#B41400' }}>{warningMessage}</span>}
         </TabPanel>
         <TabPanel isActive={activeTab === 4}>
           <p>Introduce las coordenadas</p>
           <Input
+          className='dato'
             type="text"
             placeholder="Latitud"
             id="latitude"
             name="latitude"
             value={latLng.lat}
             onChange={(e) => setLatLng({ ...latLng, lat: e.target.value })}
-            style={{ borderColor: warningMessage ? '#B41400' : '', margin: '0 3px 0 0' }}
+            style={{ borderColor: warningMessage ? '#B41400' : '', margin: '0' }}
           />
           <Input
+           className='dato'
             type="text"
             placeholder="Longitud"
             id="longitude"
             name="longitude"
             value={latLng.lng}
             onChange={(e) => setLatLng({ ...latLng, lng: e.target.value })}
-            style={{ borderColor: warningMessage ? '#B41400' : '', margin: '0 3px 0 0' }}
+            style={{ borderColor: warningMessage ? '#B41400' : '', margin: '0' }}
           />
           {warningMessage && <span style={{ color: '#B41400' }}>{warningMessage}</span>}
           <div>

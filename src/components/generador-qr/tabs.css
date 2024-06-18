@@ -6,4 +6,10 @@ div #qrCode{
 }
 .selector{
     width: 300px !important;
+    margin: 0px;
+}
+
+.dato{
+    width: 80%;
+   font-size: 14px;
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import './mapa.css';  // Importa el archivo CSS
 
 const MapaConMarcador = ({ setLatLng }) => {
   const [isClient, setIsClient] = useState(false);
@@ -50,11 +51,7 @@ const MapaConMarcador = ({ setLatLng }) => {
   return (
     <>
       {isClient && (
-        <MapContainer center={[40.030501, -3.604052]} zoom={13} style={{ 
-          height: '30vh',
-          width: '100%',
-           margin: '10px 0'
-           }}>
+        <MapContainer center={[40.030501, -3.604052]} zoom={13} className="map-container">
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

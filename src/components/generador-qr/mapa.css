@@ -1,0 +1,23 @@
+/* MapaConMarcador.css */
+
+/* Estilo por defecto */
+.map-container {
+    height: 30vh;
+    width: 100%;
+    margin: 10px 0;
+  }
+  
+  /* Media query para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .map-container {
+      height: 20vh;
+    }
+  }
+  
+  /* Media query para pantallas aún más pequeñas */
+  @media (max-width: 480px) {
+    .map-container {
+      height: 12vh;
+    }
+  }
+  
