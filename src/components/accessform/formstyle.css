@@ -1,8 +1,12 @@
 /* FORMULARIO ACCESO */
 .acceso {
-  background-color: #f1f1f1;
-  margin-top: 0px;
-  margin-bottom: 10px;
+
+    background-color: #f1f1f1;
+    text-align: center;
+    font-family: Century Gothic, serif;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
 
 }
   .datos{
@@ -95,7 +99,7 @@
   display: inline-flex;
   background-color: #f1f1f1;
   border:solid 1px #b14100;
-  padding: 15px;
+  padding: 20px;
   margin-bottom: 5px;
   width: auto;
 }
@@ -122,7 +126,7 @@
 .close-button{
   position: relative;
   margin-left: 93% !important;
-  margin-top: 5px !important;
+  margin-top: 0px !important;
 }
 .close-button:hover{
   background-color: #B41400;
@@ -132,13 +136,12 @@
 .confirmar {
   display: inline-flex;
   align-items: center;
-  margin-top: 3px;
-  margin-left: 3%;
+  margin-top: 5px;
   background-color: #FFFFFF;
   border: double #B41400;
   color: #B41400;
   font-family: Century Gothic, serif;
-  height: 30px;
+  height: 40px;
   width: auto;
 
 }

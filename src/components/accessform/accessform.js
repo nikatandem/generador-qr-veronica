@@ -52,7 +52,10 @@ function Acceso() {
       <p className="p-recuperar">¿Has olvidado tu contraseña? <button type="button" className="btn-recuperar" onClick={handleRecoverPasswordClick}> Recuperar clave de acceso</button></p>
       
 </div>
-   
+<div>
+        <p>Si no tienes cuenta puedes registrarte aquí:</p>
+        <Register/>
+      </div>
     </form>
     </div>
 {alertVisible && (
@@ -68,10 +71,7 @@ function Acceso() {
   </form>
 </div>
       )}
-      <div>
-        <p>Si no tienes cuenta puedes registrarte aquí:</p>
-        <Register/>
-      </div>
+      
     </div>
 
   );
