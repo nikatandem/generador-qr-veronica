@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import "./formstyle.css";
+import Register from "../registro/registerbtn";
 
 function Acceso() {
   const [nombre, setNombre] = useState("");
@@ -67,7 +68,12 @@ function Acceso() {
   </form>
 </div>
       )}
+      <div>
+        <p>Si no tienes cuenta puedes registrarte aquí:</p>
+        <Register/>
+      </div>
     </div>
+
   );
 
 }

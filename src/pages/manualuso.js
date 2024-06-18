@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import { HamburgerMenuPage } from "../components/menulateral/menulateral";
 import "../components/general.css"
 import { StaticImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
 const Manual = () =>{
     return (
@@ -80,6 +81,7 @@ const Manual = () =>{
                 Elige la resolución y tamaño adecuados para tus necesidades.</p>
                 <StaticImage src="../images/formato-descarga.jpg"/>
             </div>
+            <Link to="/inicio"><a className="back"> ← Volver</a></Link>
         </Layout>
     );
 };

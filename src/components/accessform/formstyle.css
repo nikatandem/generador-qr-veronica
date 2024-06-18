@@ -53,10 +53,14 @@
   }
 
 .campo {
+  display: inline;
+  align-items: justify;
     background-color: #ffffff;
     border: 1px solid;
     border-color: #e0e0e0;
     box-shadow: var(--button-shadow);
+    width: 200px;
+    margin-left: 0px;
   }
   
   .datos {
@@ -67,7 +71,7 @@
   }
   .p-recuperar{
     margin-top: 2%;
-    margin-left: -150px;
+    margin-left: 0px;
 }
   .btn-recuperar{
     margin-top:1px;
@@ -174,9 +178,9 @@
   
   .campo {
     margin-bottom:2px; 
-    align-content: center;
+    align-content: justify;
     width: 250px;
-
+    margin-left: 0px;
   }
  
   .p-recuperar {

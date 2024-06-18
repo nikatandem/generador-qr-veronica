@@ -16,7 +16,7 @@ padding-left: 1.5em;
 background-color: #282828;
 width: 100%;
 margin-top: -35px;
-margin-bottom: -40px;
+
 
 }
 .carrousel{
@@ -24,4 +24,10 @@ margin-bottom: -40px;
     width: max-content;
     height: 350px;
     width: 100%;
+}
+
+@media screen and (max-width: 450px) {
+    .container-carrousel{
+        margin-top: 1%;
+    }
 }
