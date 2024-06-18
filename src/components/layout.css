@@ -84,7 +84,7 @@ a {
 }
 
 a:active,
-a:hover {
+a:hover{
   outline-width: 0;
   text-decoration: none;
   color: #FFFFFF;

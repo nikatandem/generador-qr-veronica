@@ -7,7 +7,7 @@ const PaginaRegristro = () =>{
         return(
             <Layout>
                 <RegistroForm/>
-              <Link to="/formulario"><a>Volver</a></Link>  
+              <Link to="/formulario"><a className="back">Volver</a></Link>  
             </Layout>
         )
 }

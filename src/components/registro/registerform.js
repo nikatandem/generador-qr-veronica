@@ -24,7 +24,7 @@ const RegistroForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="formulario" onSubmit={handleSubmit}>
       <div>
         <label htmlFor="name">Nombre:</label>
         <input
@@ -80,7 +80,7 @@ const RegistroForm = () => {
           required
         />
       </div>
-      <button type="submit">Registrarse</button>
+      <button className="btn" type="submit">Registrarse</button>
     </form>
   );
 };
