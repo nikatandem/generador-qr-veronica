@@ -10,6 +10,8 @@ const RegistroForm = () => {
     passwordVerification: "",
   });
 
+  const [message, setMessage] = useState("");
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -20,13 +22,14 @@ const RegistroForm = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    
     // Validaciones antes de enviar la solicitud
     if (formData.email !== formData.emailVerification) {
-      alert("Los correos electrónicos no coinciden");
+      setMessage("Los correos electrónicos no coinciden");
       return;
     }
     if (formData.password !== formData.passwordVerification) {
-      alert("Las contraseñas no coinciden");
+      setMessage("Las contraseñas no coinciden");
       return;
     }
 
@@ -44,71 +47,75 @@ const RegistroForm = () => {
         }),
       });
       const data = await response.json();
-      console.log(data);
+      setMessage(data.message);
     } catch (error) {
       console.error('Error registrando usuario', error);
+      setMessage('Error registrando usuario');
     }
   };
 
   return (
-    <form className="formulario" onSubmit={handleRegister}>
-      <div>
-        <label htmlFor="name">Nombre:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="email">Correo Electrónico:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="emailVerification">Verificación del Correo Electrónico:</label>
-        <input
-          type="email"
-          id="emailVerification"
-          name="emailVerification"
-          value={formData.emailVerification}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Contraseña:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="passwordVerification">Verificación de la Contraseña:</label>
-        <input
-          type="password"
-          id="passwordVerification"
-          name="passwordVerification"
-          value={formData.passwordVerification}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <button className="btn" type="submit">Registrarse</button>
-    </form>
+    <div>
+      <form className="formulario" onSubmit={handleRegister}>
+        <div>
+          <label htmlFor="name">Nombre:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="email">Correo Electrónico:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="emailVerification">Verificación del Correo Electrónico:</label>
+          <input
+            type="email"
+            id="emailVerification"
+            name="emailVerification"
+            value={formData.emailVerification}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Contraseña:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="passwordVerification">Verificación de la Contraseña:</label>
+          <input
+            type="password"
+            id="passwordVerification"
+            name="passwordVerification"
+            value={formData.passwordVerification}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button className="btn" type="submit">Registrarse</button>
+      </form>
+      {message && <p>{message}</p>}
+    </div>
   );
 };
 
