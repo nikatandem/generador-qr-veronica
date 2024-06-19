@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./register.css"
+import "./register.css";
 
 const RegistroForm = () => {
   const [formData, setFormData] = useState({
@@ -18,14 +18,40 @@ const RegistroForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    // Aquí puedes agregar la lógica para enviar el formulario, como una petición a una API
-    console.log("Formulario enviado", formData);
+    // Validaciones antes de enviar la solicitud
+    if (formData.email !== formData.emailVerification) {
+      alert("Los correos electrónicos no coinciden");
+      return;
+    }
+    if (formData.password !== formData.passwordVerification) {
+      alert("Las contraseñas no coinciden");
+      return;
+    }
+
+    try {
+      const { name, email, password } = formData;
+      const response = await fetch('http://localhost/api-qr-tandem/v1/register-user.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+        }),
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('Error registrando usuario', error);
+    }
   };
 
   return (
-    <form className="formulario" onSubmit={handleSubmit}>
+    <form className="formulario" onSubmit={handleRegister}>
       <div>
         <label htmlFor="name">Nombre:</label>
         <input

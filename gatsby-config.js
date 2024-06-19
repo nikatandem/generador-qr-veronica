@@ -24,6 +24,7 @@ module.exports = {
     `html-to-image`,
     `file-saver`,
     `downloadjs`,
-    `react-toastify`
+    `react-toastify`,
+    `react-icons`
   ],
 }
