@@ -3,7 +3,8 @@ import "./register.css";
 
 const RegistroForm = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    nombre: "",
+    delegacion: "", // Agregar delegacion
     email: "",
     emailVerification: "",
     password: "",
@@ -34,14 +35,15 @@ const RegistroForm = () => {
     }
 
     try {
-      const { name, email, password } = formData;
+      const { nombre, delegacion, email, password } = formData;
       const response = await fetch('http://localhost/api-qr-tandem/v1/register-user.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name,
+          nombre,
+          delegacion,
           email,
           password,
         }),
@@ -58,14 +60,25 @@ const RegistroForm = () => {
     <div>
       <form className="formulario" onSubmit={handleRegister}>
         <div>
-          <label htmlFor="name">Nombre:</label>
+          <label htmlFor="nombre">Nombre:</label>
           <input
             type="text"
-            id="name"
-            name="name"
-            value={formData.name}
+            id="nombre"
+            name="nombre"
+            value={formData.nombre}
             onChange={handleChange}
             required
+          />
+        </div>
+        <div>
+          <label htmlFor="delegacion">Delegación:</label>
+          <input
+            type="text"
+            id="delegacion"
+            name="delegacion"
+            value={formData.delegacion}
+            onChange={handleChange}
+            
           />
         </div>
         <div>
