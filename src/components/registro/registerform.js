@@ -72,7 +72,7 @@ const RegistroForm = () => {
     <div>
       <form className="formulario" onSubmit={handleRegister}>
         <div>
-          <label htmlFor="nombre">Nombre:</label>
+          <label htmlFor="nombre">* Nombre:</label>
           <input
             type="text"
             id="nombre"
@@ -83,7 +83,7 @@ const RegistroForm = () => {
           />
         </div>
         <div>
-          <label htmlFor="delegacion">Delegación:</label>
+          <label htmlFor="delegacion">Delegación (opcional):</label>
           <input
             type="text"
             id="delegacion"
@@ -93,7 +93,7 @@ const RegistroForm = () => {
           />
         </div>
         <div>
-          <label htmlFor="email">Correo Electrónico:</label>
+          <label htmlFor="email">* Correo Electrónico:</label>
           <input
             type="email"
             id="email"
@@ -104,7 +104,7 @@ const RegistroForm = () => {
           />
         </div>
         <div>
-          <label htmlFor="emailVerification">Verificación del Correo Electrónico:</label>
+          <label htmlFor="emailVerification">* Verificación del Correo Electrónico:</label>
           <input
             type="email"
             id="emailVerification"
@@ -115,7 +115,7 @@ const RegistroForm = () => {
           />
         </div>
         <div className="password-container">
-          <label htmlFor="password">Contraseña:</label>
+          <label htmlFor="password">* Contraseña:</label>
           <input
             type={showPassword ? "text" : "password"}
             id="password"
@@ -129,7 +129,7 @@ const RegistroForm = () => {
           </button>
         </div>
         <div className="password-container">
-          <label htmlFor="passwordVerification">Verificación de la Contraseña:</label>
+          <label htmlFor="passwordVerification">* Verificación de la Contraseña:</label>
           <input
             type={showPasswordVerification ? "text" : "password"}
             id="passwordVerification"
