@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./register.css";
+import eyeIcon from "../../images/show.png";
+import eyeOffIcon from "../../images/hide.png";
 
 const RegistroForm = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +14,8 @@ const RegistroForm = () => {
   });
 
   const [message, setMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordVerification, setShowPasswordVerification] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,6 +23,14 @@ const RegistroForm = () => {
       ...formData,
       [name]: value,
     });
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const togglePasswordVerificationVisibility = () => {
+    setShowPasswordVerification(!showPasswordVerification);
   };
 
   const handleRegister = async (e) => {
@@ -78,7 +90,6 @@ const RegistroForm = () => {
             name="delegacion"
             value={formData.delegacion}
             onChange={handleChange}
-            
           />
         </div>
         <div>
@@ -103,27 +114,33 @@ const RegistroForm = () => {
             required
           />
         </div>
-        <div>
+        <div className="password-container">
           <label htmlFor="password">Contraseña:</label>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             id="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
             required
           />
+          <button type="button" className="toggle-password" onClick={togglePasswordVisibility}>
+            <img src={showPassword ? eyeOffIcon : eyeIcon} alt="Toggle visibility" />
+          </button>
         </div>
-        <div>
+        <div className="password-container">
           <label htmlFor="passwordVerification">Verificación de la Contraseña:</label>
           <input
-            type="password"
+            type={showPasswordVerification ? "text" : "password"}
             id="passwordVerification"
             name="passwordVerification"
             value={formData.passwordVerification}
             onChange={handleChange}
             required
           />
+          <button type="button" className="toggle-password" onClick={togglePasswordVerificationVisibility}>
+            <img src={showPasswordVerification ? eyeOffIcon : eyeIcon} alt="Toggle visibility" />
+          </button>
         </div>
         <button className="btn" type="submit">Registrarse</button>
       </form>
