@@ -48,7 +48,7 @@ const RegistroForm = () => {
 
     try {
       const { nombre, delegacion, email, password } = formData;
-      const response = await fetch('http://localhost/api-qr-tandem/v1/register-user.php', {
+      const response = await fetch('http://localhost/api-qr-tandem/v1/create-users.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,8 +72,9 @@ const RegistroForm = () => {
     <div>
       <form className="formulario" onSubmit={handleRegister}>
         <div>
-          <label htmlFor="nombre">* Nombre:</label>
+          <label htmlFor="nombre" className="labelregistro">* Nombre:</label>
           <input
+          className="inputregistro"
             type="text"
             id="nombre"
             name="nombre"
@@ -83,18 +84,30 @@ const RegistroForm = () => {
           />
         </div>
         <div>
-          <label htmlFor="delegacion">Delegación (opcional):</label>
-          <input
-            type="text"
+         
+          <label htmlFor="delegacion" className="labelregistro">* Delegación:</label>
+           <select
+           className="selectregistro"
             id="delegacion"
             name="delegacion"
             value={formData.delegacion}
             onChange={handleChange}
-          />
+            required
+          >
+            <option value="">Seleccione una delegación</option>
+            <option value="La Almudaina">La Almudaina</option>
+            <option value="Aranjuez">Aranjuez</option>
+            <option value="El Pardo">El Pardo</option>
+            <option value="San Ildefonso">San Ildefonso</option>
+            <option value="San Jerónimo de Yuste">San Jerónimo de Yuste</option>
+            <option value="San Lorenzo de El Escorial">San Lorenzo de El Escorial</option>
+            <option value="Reales Patronatos">Reales Patronatos</option>
+          </select>
         </div>
         <div>
-          <label htmlFor="email">* Correo Electrónico:</label>
+          <label htmlFor="email" className="labelregistro">* Correo Electrónico:</label>
           <input
+          className="inputregistro"
             type="email"
             id="email"
             name="email"
@@ -104,8 +117,9 @@ const RegistroForm = () => {
           />
         </div>
         <div>
-          <label htmlFor="emailVerification">* Verificación del Correo Electrónico:</label>
+          <label htmlFor="emailVerification" className="labelregistro">* Verificación del Correo Electrónico:</label>
           <input
+          className="inputregistro"
             type="email"
             id="emailVerification"
             name="emailVerification"
@@ -115,8 +129,9 @@ const RegistroForm = () => {
           />
         </div>
         <div className="password-container">
-          <label htmlFor="password">* Contraseña:</label>
+          <label htmlFor="password" className="labelregistro">* Contraseña:</label>
           <input
+          className="inputregistro"
             type={showPassword ? "text" : "password"}
             id="password"
             name="password"
@@ -129,8 +144,9 @@ const RegistroForm = () => {
           </button>
         </div>
         <div className="password-container">
-          <label htmlFor="passwordVerification">* Verificación de la Contraseña:</label>
+          <label htmlFor="passwordVerification" className="labelregistro">* Verificación de la Contraseña:</label>
           <input
+          className="inputregistro"
             type={showPasswordVerification ? "text" : "password"}
             id="passwordVerification"
             name="passwordVerification"

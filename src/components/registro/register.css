@@ -1,56 +1,72 @@
- .formulario{
-background-color: #f1f1f1;
-text-align: center;
-font-family: Century Gothic, serif;
-width: 70%;
-margin-left: 15%;
-margin-bottom: 10px;
-padding: 10px;
-  }
-label{
+.formulario {
+  background-color: #f1f1f1;
+  font-family: Century Gothic, serif;
+  width: 75%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 
+}
+
+.labelregistro{
+  text-align: justify;
+  width: 80%;
+  margin-left: 4%;
+
+    }
+
+.selectregistro{
+    text-align: justify;
+    display: block;
+    margin-left: 4%;
+     width: 90%;
+     height: 30px;
   }
 
-input{
-display: block;
-margin-left: 15%;
-width: 70%;
-  }
+  .inputregistro {
+  display: block;
+ margin-left: 4%;
+  width: 90%;
+  height: 30px;
+    }
 
 a.back {
-color: var(--color-primary);
-text-decoration: none;
-font-weight: 500;
-text-decoration: none;
-text-decoration-thickness: 1.5px;
-text-underline-offset: 2px;
-margin-top: 2%;
-margin-bottom: 3%;
-  }
-  
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  text-decoration: none;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
 a.back:active,
 a.back:hover {
-outline-width: 0;
-text-decoration: none;
-color: #282828 !important;
-  }
-  .btn{
-    text-align: center;
-    align-items: center;
-    margin-top: 5px;
-   
-  }
+  outline-width: 0;
+  text-decoration: none;
+  color: #282828 !important;
+}
 
+.btn {
+  text-align: center;
+  margin-top: 5px;
+  align-self: center; /* Centra el botón dentro del contenedor flex */
+}
 
 .password-container {
   position: relative;
+  width: 100%; /* Asegura que el contenedor de la contraseña tenga el mismo ancho que los inputs */
+  margin-bottom: 10px; /* Añadir margen inferior */
 }
 
 .toggle-password {
   position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-65%);
+  right: 10px;
+  top: 48%;
+  transform: translateY(-50%);
   background: none;
   border: none;
   cursor: pointer;
@@ -63,32 +79,27 @@ color: #282828 !important;
 }
 
 @media screen and (max-width: 450px) {
-  .btn{
-
+  .btn {
     margin-top: 10px;
     margin-bottom: 10px;
-   
-
   }
-  input{
-    display: block;
-    margin-left: 10%;
+
+  input, select, label {
     width: 80%;
-    padding: 8px;
-    margin-top: 1px;
-      }
-      .toggle-password {
-        position: absolute;
-        right: 0px;
-        top: 55%;
-        transform: translateY(-63%);
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-      }
-      .toggle-password img {
-        width: 20px;
-        height: 20px;
-      }
+  }
+
+  .password-container {
+    width: 80%;
+  }
+
+  .toggle-password {
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .toggle-password img {
+    width: 20px;
+    height: 20px;
+  }
 }
