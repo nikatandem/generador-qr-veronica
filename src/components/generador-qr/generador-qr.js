@@ -6,6 +6,7 @@ import { toPng, toJpeg, toSvg } from 'html-to-image';
 import './tabs.css';
 import 'react-toastify/dist/ReactToastify.css';
 import MapaConMarcador from './mapa';
+import SaveQrCode from '../saveqrcode/saveqrcode';
 
 const Container = styled.div`
   display: flex;
@@ -119,10 +120,16 @@ const QrCodeGenerator = () => {
   const [selectedFormat, setSelectedFormat] = useState('png');
   const [downloadMessage, setDownloadMessage] = useState('');
   const [warningMessage, setWarningMessage] = useState('');
-  const [fileName, setFileName] = useState('qr-code');
-  const qrRef = useRef(null);
+  const [nombre_ref, setNombre_ref] = useState('qr-code');
+  const [qrRef] = useRef(null);
+  const [data]= useState('');
+  const [description] = useState('');
+  const [created_by] = useState('');
+
 
   const [latLng, setLatLng] = useState({ lat: '', lng: '' });
+ // Define userId aquí
+ const userId = 1; // Ajusta esto según la lógica de tu aplicación
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
@@ -168,10 +175,11 @@ const QrCodeGenerator = () => {
       } else if (selectedFormat === 'svg') {
         dataUrl = await toSvg(node);
       }
-      download(dataUrl, `${fileName}.${selectedFormat}`);
+      download(dataUrl, `${nombre_ref}.${selectedFormat}`);
       setDownloadMessage('Su QR se ha descargado con éxito');
     }
   };
+  
 
   return (
     <Container>
@@ -325,8 +333,8 @@ const QrCodeGenerator = () => {
               className='selector'
               type='text'
               placeholder='Nombre del archivo'
-              value={fileName}
-              onChange={(e) => setFileName(e.target.value)}
+              value={nombre_ref}
+              onChange={(e) => setNombre_ref(e.target.value)}
             />
             <h4>Selecciona el formato para descargar el QR</h4>
             <label>
@@ -358,6 +366,12 @@ const QrCodeGenerator = () => {
             </label>
           </div>
           <Button onClick={handleConfirmDownload}>Descargar</Button>
+          <SaveQrCode
+            data={qrValue}
+            nombre_ref={nombre_ref}
+            description={data} // Puedes ajustar esto según tus necesidades
+            created_by={userId}
+          />
           {downloadMessage && <p>{downloadMessage}</p>}
         </div>
       )}
