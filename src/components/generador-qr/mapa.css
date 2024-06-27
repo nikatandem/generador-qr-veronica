@@ -2,9 +2,10 @@
 
 /* Estilo por defecto */
 .map-container {
-    height: 30vh;
-    width: 100%;
+    height: 35vh;
+    width: 85%;
     margin: 10px 0;
+    
   }
   
   /* Media query para pantallas más pequeñas */

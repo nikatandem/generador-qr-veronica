@@ -10,6 +10,11 @@ div #qrCode{
 }
 
 .dato{
-    width: 80%;
+    width: 100%;
    font-size: 14px;
+}
+h4{
+    font-size: 16px;
+    padding: .3em;
+    margin-top: 4px;
 }

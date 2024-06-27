@@ -24,7 +24,7 @@ const Container = styled.div`
 const Input = styled.input`
   padding: 10px;
   font-size: 16px;
-  width: 100%;
+  width: 80%;
 
   @media (min-width: 320px) {
     width: 100%;
@@ -121,15 +121,12 @@ const QrCodeGenerator = () => {
   const [downloadMessage, setDownloadMessage] = useState('');
   const [warningMessage, setWarningMessage] = useState('');
   const [nombre_ref, setNombre_ref] = useState('qr-code');
-  const [qrRef] = useRef(null);
-  const [data]= useState('');
-  const [description] = useState('');
-  const [created_by] = useState('');
-
-
+  const qrRef = useRef(null); // Cambiado a una variable de referencia normal
+  const [description, setDescription] = useState('');
   const [latLng, setLatLng] = useState({ lat: '', lng: '' });
- // Define userId aquí
- const userId = 1; // Ajusta esto según la lógica de tu aplicación
+
+  // Define userId aquí
+  const userId = 1; // Ajusta esto según la lógica de tu aplicación
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
@@ -179,7 +176,6 @@ const QrCodeGenerator = () => {
       setDownloadMessage('Su QR se ha descargado con éxito');
     }
   };
-  
 
   return (
     <Container>
@@ -211,6 +207,7 @@ const QrCodeGenerator = () => {
             onChange={handleChange}
             style={{ borderColor: warningMessage ? '#B41400' : '', margin: '0' }}
           />
+                {warningMessage && <span style={{ color: '#B41400' }}>{warningMessage}</span>}
         </TabPanel>
         <TabPanel isActive={activeTab === 1}>
           <p>Introduce la URL</p>
@@ -328,14 +325,24 @@ const QrCodeGenerator = () => {
           </div>
           <div className='radio-group'>
             <hr />
+            <h4>Introduce una breve descripción:</h4>
+            <Input
+              className='dato'
+              type='text'
+              placeholder='Código QR para [nombre de usuario]'
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
             <h4>Introduce el nombre del archivo:</h4>
             <Input
               className='selector'
               type='text'
-              placeholder='Nombre del archivo'
+              placeholder='Nombre de referencia del archivo'
               value={nombre_ref}
               onChange={(e) => setNombre_ref(e.target.value)}
             />
+           
+            
             <h4>Selecciona el formato para descargar el QR</h4>
             <label>
               <input
@@ -369,7 +376,7 @@ const QrCodeGenerator = () => {
           <SaveQrCode
             data={qrValue}
             nombre_ref={nombre_ref}
-            description={data} // Puedes ajustar esto según tus necesidades
+            description={description} // Puedes ajustar esto según tus necesidades
             created_by={userId}
           />
           {downloadMessage && <p>{downloadMessage}</p>}

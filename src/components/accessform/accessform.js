@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { navigate } from "gatsby";
 import "./formstyle.css";
 import Register from "../registro/registerbtn";
+// import { UserContext } from "../../context/userContext";
 
 function Acceso() {
   const [nombre, setNombre] = useState("");
@@ -9,7 +10,8 @@ function Acceso() {
   const [alertVisible, setAlertVisible] = useState(false);
   const [email, setEmail] = useState("");
   const [error, setError] = useState(null);
-  
+  // const {setUser} = useContext(UserContext);
+
   const handleChangeName = (event) => {
     setNombre(event.target.value);
   };
@@ -43,8 +45,10 @@ function Acceso() {
       });
 
       const data = await response.json();
-
+      console.log(data);
       if (response.ok) {
+        // setUser(data.token);
+        // setUser(data.user);
         // Redirigir al usuario a la página de inicio si el login es exitoso
         navigate('/inicio');
       } else {
