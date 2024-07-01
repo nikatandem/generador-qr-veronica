@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import MapaConMarcador from './mapa';
 import SaveQrCode from '../saveqrcode/saveqrcode';
 
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -24,7 +25,7 @@ const Container = styled.div`
 const Input = styled.input`
   padding: 10px;
   font-size: 16px;
-  width: 80%;
+  width: 100%;
 
   @media (min-width: 320px) {
     width: 100%;
@@ -124,9 +125,9 @@ const QrCodeGenerator = () => {
   const qrRef = useRef(null); // Cambiado a una variable de referencia normal
   const [description, setDescription] = useState('');
   const [latLng, setLatLng] = useState({ lat: '', lng: '' });
+  const userId = localStorage.getItem('tndm_id')
 
-  // Define userId aquí
-  const userId = 1; // Ajusta esto según la lógica de tu aplicación
+  
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
@@ -207,7 +208,6 @@ const QrCodeGenerator = () => {
             onChange={handleChange}
             style={{ borderColor: warningMessage ? '#B41400' : '', margin: '0' }}
           />
-                {warningMessage && <span style={{ color: '#B41400' }}>{warningMessage}</span>}
         </TabPanel>
         <TabPanel isActive={activeTab === 1}>
           <p>Introduce la URL</p>
@@ -337,7 +337,7 @@ const QrCodeGenerator = () => {
             <Input
               className='selector'
               type='text'
-              placeholder='Nombre de referencia del archivo'
+              placeholder='Nombre del archivo'
               value={nombre_ref}
               onChange={(e) => setNombre_ref(e.target.value)}
             />

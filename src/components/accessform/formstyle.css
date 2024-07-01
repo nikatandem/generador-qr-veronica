@@ -1,20 +1,51 @@
 /* FORMULARIO ACCESO */
 .acceso {
-
-    background-color: #f1f1f1;
+    background-color: rgba(241, 241, 241, 0.811);
     text-align: center;
     font-family: Century Gothic, serif;
     width: 100%;
     margin-bottom: 10px;
     padding: 5px;
-
 }
-  .datos{
-  display: inline;
-  margin-bottom: 0px;
   
- 
-  }
+.log {
+  display: flex; /* Activa el modo flexbox para los elementos log */
+  flex-direction: column; /* Ordena los elementos en columna */
+  width: 70%; /* Ajusta el ancho según tus necesidades */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
+
+.datos {
+  margin-bottom: 10px; /* Espacio entre el texto y el input */
+}
+
+.campo {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.btn-acceder {
+  margin-top: 10px; /* Espacio entre el input y el botón */
+  padding:3px;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  border: double #B41400;
+  color: #B41400;
+  font-family: Century Gothic, serif;
+  height: 40px;
+  width: auto;
+}
+.btn-acceder:hover{
+  background-color: #B41400;
+  border: double #ffffff;
+  color: #ffffff;
+}
+.message {
+  text-align: center;
+  margin-top: 20px;
+}
+
   .botones{
     margin-top: 0px;
     display: inline;
@@ -55,18 +86,6 @@
     border-color: #b14100;
 
   }
-
-.campo {
-  display: inline;
-  align-items: justify;
-    background-color: #ffffff;
-    border: 1px solid;
-    border-color: #e0e0e0;
-    box-shadow: var(--button-shadow);
-    width: 200px;
-    margin-left: 0;
-  }
-  
   .datos {
     width: fit-content;
     color: #282828;

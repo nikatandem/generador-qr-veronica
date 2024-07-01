@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-
 const Button = styled.button`
   align-items: center;
   padding: 10px 20px;
@@ -67,4 +66,3 @@ const SaveQrCode = ({ data, nombre_ref, description, created_by }) => {
 };
 
 export default SaveQrCode;
-

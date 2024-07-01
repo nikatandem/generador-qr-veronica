@@ -51,13 +51,13 @@ const MapaConMarcador = ({ setLatLng }) => {
   return (
     <>
       {isClient && (
-        <MapContainer center={[40.030501, -3.604052]} zoom={15} className="map-container" >
-          <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          />
-          <LocationMarker setLatLng={setLatLng} />
-        </MapContainer>
+       <MapContainer center={[40.030501, -3.604052]} zoom={13} style={{ height: '30vh', width: '100%' }}>
+       <TileLayer
+           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+       />
+       <LocationMarker setLatLng={setLatLng} />
+   </MapContainer>
       )}
     </>
   );
