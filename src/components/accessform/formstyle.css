@@ -189,7 +189,10 @@
 
 }
 
-
+a:hover{
+  color:#282828;
+  text-decoration: underline;
+}
 
 /* Media Query para pantallas de 450px */
 @media screen and (max-width: 450px) {

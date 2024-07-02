@@ -3,6 +3,7 @@ import { navigate } from "gatsby";
 import "./formstyle.css";
 import Register from "../registro/registerbtn";
 import Login from "./login";
+import { Link } from "gatsby"
 
 function Acceso() {
   const [email, setEmail] = useState('');
@@ -31,7 +32,7 @@ function Acceso() {
     <Login/>
           <div className="botones">
             
-            <p className="p-recuperar">¿Has olvidado tu contraseña? <button type="button" className="btn-recuperar" onClick={handleRecoverPasswordClick}>Recuperar clave de acceso</button></p>
+          <p className="p-recuperar">¿Has olvidado tu contraseña? <Link to="/changepassword">Cambiar contraseña</Link></p>
           </div>
 
 
