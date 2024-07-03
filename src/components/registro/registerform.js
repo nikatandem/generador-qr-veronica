@@ -48,7 +48,7 @@ const RegistroForm = () => {
 
     try {
       const { nombre, delegacion, email, password } = formData;
-      const response = await fetch('http://localhost/api-qr-tandem/v1/create-users.php', {
+      const response = await fetch('http://localhost/api-qr-tandem/v1/get-user.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -137,6 +137,7 @@ const RegistroForm = () => {
             name="password"
             value={formData.password}
             onChange={handleChange}
+             autocomplete="new-password"
             required
           />
           <button type="button" className="toggle-password" onClick={togglePasswordVisibility}>
@@ -152,6 +153,7 @@ const RegistroForm = () => {
             name="passwordVerification"
             value={formData.passwordVerification}
             onChange={handleChange}
+             autocomplete="new-password"
             required
           />
           <button type="button" className="toggle-password" onClick={togglePasswordVerificationVisibility}>

@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 import RegistroForm from "../components/registro/registerform";
 import { Link } from "gatsby";
 
-const PaginaRegristro = () =>{
+const PaginaRegistro = () =>{
         return(
             <Layout>
               <h2>Resgistro nuevo usuario</h2>
@@ -13,4 +13,4 @@ const PaginaRegristro = () =>{
         )
 }
 
-export default PaginaRegristro
+export default PaginaRegistro

@@ -7,9 +7,9 @@ const Formulario = () =>{
       <>
       <Layout>
         <h2>Inicio de sesión</h2>
-    
+    <form>
     <Acceso/>
-
+</form>
   <div><Link to="/"><a className="back"> ← Volver</a></Link></div>
     
       </Layout>
