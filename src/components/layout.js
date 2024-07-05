@@ -1,10 +1,10 @@
 import * as React from "react"
 import Header from "./header/header"
 import { useStaticQuery, graphql } from "gatsby"
-import FooterLogo from "./footer/footerlogos"
 import "./layout.css"
 import Footer from "./footer/footer"
-import { Link } from "gatsby"
+
+
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
