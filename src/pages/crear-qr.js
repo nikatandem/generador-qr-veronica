@@ -13,7 +13,7 @@ const CrearQr = () =>{
       <h1>Generador de Códigos QR</h1>
       
   <QrCodeGenerator/>
-  <Link to="/inicio"><a className="back"> ← Volver</a></Link>
+  <Link to="/inicio"> ← Volver</Link>
       </Layout>
     
       </>

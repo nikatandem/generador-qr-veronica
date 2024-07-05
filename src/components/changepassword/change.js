@@ -66,9 +66,14 @@ const ChangePassword = () => {
 
     return (
 <<<<<<< HEAD
+<<<<<<< HEAD
         <>
 =======
 >>>>>>> 1d8f7c67d83143cf010ee493749384fe5490ef07
+=======
+        <>
+
+>>>>>>> develop
         <div className='container'>
             <h1>Cambiar Contraseña</h1>
             <h2>Introduzca sus datos para cambiar la contraseña:</h2>
@@ -87,9 +92,12 @@ const ChangePassword = () => {
         </div>
         <div className="password-container">
 <<<<<<< HEAD
+<<<<<<< HEAD
             
 =======
 >>>>>>> 1d8f7c67d83143cf010ee493749384fe5490ef07
+=======
+>>>>>>> develop
           <label htmlFor="password" className="labelregistro">* Nueva Contraseña:</label>
           <input
           className="inputregistro"
@@ -114,9 +122,13 @@ const ChangePassword = () => {
             value={formData.passwordVerification}
             onChange={handleChange}
             required
+<<<<<<< HEAD
           />
 <<<<<<< HEAD
         
+=======
+          />        
+>>>>>>> develop
           <button type="button" className="toggle-password" onClick={togglePasswordVerificationVisibility}>
             <img src={showPasswordVerification ? eyeOffIcon : eyeIcon} alt="Toggle visibility" />
           </button>
@@ -132,6 +144,7 @@ const ChangePassword = () => {
         )
       
         };
+<<<<<<< HEAD
     
 =======
           <button type="button" className="toggle-password" onClick={togglePasswordVerificationVisibility}>
@@ -147,5 +160,8 @@ const ChangePassword = () => {
     );
 };
 >>>>>>> 1d8f7c67d83143cf010ee493749384fe5490ef07
+=======
+
+>>>>>>> develop
 
 export default ChangePassword;
