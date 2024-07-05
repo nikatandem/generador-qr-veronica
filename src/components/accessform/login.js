@@ -6,12 +6,6 @@ const Login = ({ onError }) => {
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-// Correct
-const [key, setKey] = useState(undefined)
-
-useEffect(() => {
-  setKey(localStorage.getItem('token'))
-}, [])
 
     const handleLogin = async () => {
         setIsLoading(true);
