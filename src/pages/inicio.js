@@ -9,6 +9,7 @@ import PerfilInfo from "../components/accessform/perfil";
 const Inicio = () => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    
 
     useEffect(() => {
         const tndm_id = localStorage.getItem('tndm_id');

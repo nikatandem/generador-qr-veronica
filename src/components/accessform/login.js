@@ -1,4 +1,4 @@
-// src/components/accessform/login.js
+
 import React, { useState } from 'react';
 
 const Login = ({ onError }) => {
@@ -74,6 +74,7 @@ const Login = ({ onError }) => {
                 {isLoading ? 'Cargando...' : 'Acceder'}
             </button>
             {message && <p>{message}</p>}
+   
         </>
     );
 };
