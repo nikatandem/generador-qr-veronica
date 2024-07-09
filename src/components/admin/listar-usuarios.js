@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import EliminarUsuario from "./eliminar-usuario";
+import EditarUsuario from "./editar-usuario";
+import CambiarRol from "./cambiar-rol-usuario";
 
 function Listar({ url }) {
   const [users, setUsers] = useState([]);
@@ -28,6 +31,10 @@ function Listar({ url }) {
     fetchUsers();
   }, [url]);
 
+  const handleUserDeleted = (userId) => {
+    setUsers(users.filter(user => user.id !== userId));
+  };
+
   const tableStyle = {
     width: "100%",
     borderCollapse: "collapse",
@@ -36,7 +43,7 @@ function Listar({ url }) {
 
   const thTdStyle = {
     border: "1px solid #ddd",
-    padding: "8px ",
+    padding: "8px",
     width: "auto",
     textAlign: "left"
   };
@@ -57,8 +64,8 @@ function Listar({ url }) {
             <th style={{ ...thTdStyle, ...thStyle }}>Email</th>
             <th style={{ ...thTdStyle, ...thStyle }}>Delegación</th>
             <th style={{ ...thTdStyle, ...thStyle }}>Rol</th>
-            <th style={{ ...thTdStyle, ...thStyle }}>Modificar</th>
-            <th style={{ ...thTdStyle, ...thStyle }}>Cambiar rol</th>
+            <th style={{ ...thTdStyle, ...thStyle }}>Editar Datos</th>
+            <th style={{ ...thTdStyle, ...thStyle }}>Asignar Rol</th>
             <th style={{ ...thTdStyle, ...thStyle }}>Eliminar</th>
           </tr>
         </thead>
@@ -70,9 +77,11 @@ function Listar({ url }) {
               <td style={thTdStyle}>{user.email}</td>
               <td style={thTdStyle}>{user.delegacion}</td>
               <td style={thTdStyle}>{user.role}</td>
-              <td style={thTdStyle}><button>Editar</button></td>
-              <td style={thTdStyle}><button>Editar</button></td>
-              <td style={thTdStyle}><button>Eliminar</button></td>
+              <td style={thTdStyle}><EditarUsuario userId={user.id} /></td>
+              <td style={thTdStyle}><CambiarRol userId={user.id} /></td>
+              <td style={thTdStyle}>
+                <EliminarUsuario userId={user.id} onUserDeleted={handleUserDeleted} />
+              </td>
             </tr>
           ))}
         </tbody>
