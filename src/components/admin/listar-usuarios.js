@@ -20,8 +20,8 @@ function Listar({ url }) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
+        console.log("Data received:", data); // Verifica la estructura de data aquí
         setUsers(data.users);
-        setMessage("Esta es la lista de usuarios");
       } catch (error) {
         console.log("Error al buscar la lista de usuarios", error);
         console.error("Stack trace:", error.stack);
@@ -33,6 +33,10 @@ function Listar({ url }) {
 
   const handleUserDeleted = (userId) => {
     setUsers(users.filter(user => user.id !== userId));
+  };
+
+  const handleRoleChanged = (email, newRole) => {
+    setUsers(users.map(user => user.email === email ? { ...user, role: newRole } : user));
   };
 
   const tableStyle = {
@@ -54,8 +58,8 @@ function Listar({ url }) {
 
   return (
     <>
-      <h2>Lista de usuarios</h2>
-      <p>{message}</p>
+      <h2>Usuarios registrados</h2>
+    
       <table style={tableStyle}>
         <thead>
           <tr>
@@ -77,8 +81,10 @@ function Listar({ url }) {
               <td style={thTdStyle}>{user.email}</td>
               <td style={thTdStyle}>{user.delegacion}</td>
               <td style={thTdStyle}>{user.role}</td>
-              <td style={thTdStyle}><EditarUsuario userId={user.id} /></td>
-              <td style={thTdStyle}><CambiarRol userId={user.id} /></td>
+              <td style={thTdStyle}><EditarUsuario user={user} onUserUpdated={(updatedUser) => setUsers(users.map(u => u.id === updatedUser.id ? updatedUser : u))} /></td>
+              <td style={thTdStyle}>
+                <CambiarRol userEmail={user.email} onRoleChanged={handleRoleChanged} />
+              </td>
               <td style={thTdStyle}>
                 <EliminarUsuario userId={user.id} onUserDeleted={handleUserDeleted} />
               </td>

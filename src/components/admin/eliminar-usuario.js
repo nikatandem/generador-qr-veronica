@@ -20,9 +20,11 @@ function EliminarUsuario({ userId, onUserDeleted }) {
         );
         console.log(`Response status: ${response.status}`); // Log de depuración
         if (!response.ok) {
-          const data = await response.json();
+          const data = await response.json().catch(() => {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          });
           console.log('Response data:', data); // Log de depuración
-          throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error(data.message || `HTTP error! status: ${response.status}`);
         }
 
         setMessage('Usuario eliminado correctamente');
