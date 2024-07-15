@@ -48,7 +48,7 @@ const RegistroForm = () => {
 
     try {
       const { nombre, delegacion, email, password } = formData;
-      const response = await fetch('http://localhost/api-qr-tandem/v1/get-user.php', {
+      const response = await fetch('http://localhost/api-qr-tandem/v1/register-user.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

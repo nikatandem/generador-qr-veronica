@@ -58,11 +58,11 @@ function ListadoQR({ url }) {
             <table style={tableStyle}>
                 <thead>
                     <tr>
-                        <th style={{ ...thTdStyle, ...thStyle }}>ID</th>
+                        <th style={{ ...thTdStyle, ...thStyle }}>QR ID</th>
                         <th style={{ ...thTdStyle, ...thStyle }}>Data</th>
                         <th style={{ ...thTdStyle, ...thStyle }}>Nombre de Referencia</th>
                         <th style={{ ...thTdStyle, ...thStyle }}>Descripción</th>
-                        <th style={{ ...thTdStyle, ...thStyle }}>Usuario Creador</th>
+                        <th style={{ ...thTdStyle, ...thStyle }}>User ID</th>
                         <th style={{ ...thTdStyle, ...thStyle }}>Editar</th>
                         <th style={{ ...thTdStyle, ...thStyle }}>Eliminar</th>
                     </tr>
@@ -74,7 +74,7 @@ function ListadoQR({ url }) {
                             <td style={thTdStyle}>{qr.qr_data}</td>
                             <td style={thTdStyle}>{qr.qr_nombre_ref}</td>
                             <td style={thTdStyle}>{qr.qr_description}</td>
-                            <td style={thTdStyle}>{qr.user_nombre}</td>
+                            <td style={thTdStyle}>{qr.user_id} - {qr.user_role}</td>
                             <td style={thTdStyle}>
                                 <EditarQR qr={qr} onQrUpdated={(updatedQr) => setUsers(users.map(u => u.qr_id === updatedQr.qr_id ? updatedQr : u))} />
                             </td>
