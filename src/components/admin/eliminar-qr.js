@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 
-function EliminarUsuario({ userId, onUserDeleted }) {
+function EliminarQR({ qrId, onQrDeleted }) {
     const [message, setMessage] = useState('');
 
     const handleDelete = async () => {
-        const confirmed = window.confirm("¿Está seguro de que quiere eliminar a este usuario?");
+        const confirmed = window.confirm("¿Está seguro de que quiere eliminar este código QR?");
         if (confirmed) {
             try {
                 const response = await fetch(
-                    "http://localhost/api-qr-tandem/v1/delete-user.php",
+                    "http://localhost/api-qr-tandem/v1/delete-qr.php",
                     {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
                         },
-                        body: JSON.stringify({ id: userId })
+                        body: JSON.stringify({ id: qrId })
                     }
                 );
                 if (!response.ok) {
@@ -24,11 +24,11 @@ function EliminarUsuario({ userId, onUserDeleted }) {
                     throw new Error(data.message || `HTTP error! status: ${response.status}`);
                 }
 
-                setMessage('Usuario eliminado correctamente');
-                onUserDeleted(userId);
+                setMessage('Código QR eliminado correctamente');
+                onQrDeleted(qrId);
             } catch (error) {
-                console.error("Error al eliminar el usuario:", error);
-                setMessage('Error al eliminar el usuario');
+                console.error("Error al eliminar el código QR:", error);
+                setMessage('Error al eliminar el código QR');
             }
         }
     };
@@ -41,4 +41,4 @@ function EliminarUsuario({ userId, onUserDeleted }) {
     );
 }
 
-export default EliminarUsuario;
+export default EliminarQR;

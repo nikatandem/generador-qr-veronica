@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './agregar-user.css';
 
 function AgregarUsuario() {
   const [modalOpen, setModalOpen] = useState(false);
