@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import QRCode from 'qrcode.react';
 import styled from 'styled-components';
 import download from 'downloadjs';
@@ -7,7 +7,6 @@ import './tabs.css';
 import 'react-toastify/dist/ReactToastify.css';
 import MapaConMarcador from './mapa';
 import SaveQrCode from '../saveqrcode/saveqrcode';
-
 
 const Container = styled.div`
   display: flex;
@@ -122,12 +121,18 @@ const QrCodeGenerator = () => {
   const [downloadMessage, setDownloadMessage] = useState('');
   const [warningMessage, setWarningMessage] = useState('');
   const [nombre_ref, setNombre_ref] = useState('qr-code');
-  const qrRef = useRef(null); // Cambiado a una variable de referencia normal
+  const qrRef = useRef(null); 
   const [description, setDescription] = useState('');
   const [latLng, setLatLng] = useState({ lat: '', lng: '' });
-  const userId = localStorage.getItem('tndm_id')
+  const [userId, setUserId] = useState(null); // Estado para almacenar el userId
 
-  
+  // useEffect para acceder a localStorage solo en el lado del cliente
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const userIdFromLocalStorage = localStorage.getItem('tndm_id');
+      setUserId(userIdFromLocalStorage);
+    }
+  }, []);
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
@@ -376,7 +381,7 @@ const QrCodeGenerator = () => {
           <SaveQrCode
             data={qrValue}
             nombre_ref={nombre_ref}
-            description={description} // Puedes ajustar esto según tus necesidades
+            description={description}
             created_by={userId}
           />
           {downloadMessage && <p>{downloadMessage}</p>}
