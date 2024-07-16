@@ -4,8 +4,8 @@
     text-align: center;
     font-family: Century Gothic, serif;
     width: 100%;
-    margin-bottom: 10px;
-    padding: 5px;
+    margin-bottom: 7px;
+    padding: 3px;
 }
   
 .log {
@@ -16,12 +16,12 @@
 }
 
 .datos {
-  margin-bottom: 10px; /* Espacio entre el texto y el input */
+  margin-bottom: 8px; /* Espacio entre el texto y el input */
 }
 
 .campo {
   width: 100%;
-  padding: 8px;
+  padding: 6px;
   border: 1px solid #ccc;
 }
 
@@ -43,7 +43,7 @@
 }
 .message {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
   .botones{
@@ -93,7 +93,7 @@
     font-size: var( --font-md);
   }
   .p-recuperar{
-    margin-top: 2%;
+    margin-top: 1px;
     margin-left: 0px;
 }
   .btn-recuperar{

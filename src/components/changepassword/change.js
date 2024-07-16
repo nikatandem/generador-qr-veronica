@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import eyeIcon from "../../images/show.png";
 import eyeOffIcon from "../../images/hide.png";
+import "../registro/register.css"
 
 const ChangePassword = () => {
     const [formData, setFormData] = useState({
@@ -73,7 +74,9 @@ const ChangePassword = () => {
 
         <div className='container'>
             <h1>Cambiar Contraseña</h1>
-            <h2>Introduzca sus datos para cambiar la contraseña:</h2>
+           
+            <div className='acceso'>
+            <h3>Introduzca sus datos para cambiar la contraseña:</h3>
             <form onSubmit={handleSubmit}>
       <div>
           <label htmlFor="email" className="labelregistro">* Correo Electrónico:</label>
@@ -127,7 +130,9 @@ const ChangePassword = () => {
             {message && <p>{message}</p>}
            
         </div>
-        </>
+      
+        </div> 
+         </>
     )};
 
     

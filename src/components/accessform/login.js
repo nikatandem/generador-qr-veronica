@@ -46,7 +46,8 @@ const Login = ({ onError }) => {
     return (
         <>
             <div className='log'>
-                <p className='datos'>Introduzca su email:</p>
+                <h3>Introduzca sus credenciales</h3>
+                <label chtmlFor='email' className='datos'>Introduzca su email:</label>
                 <input
                     className='campo'
                     type="email"
