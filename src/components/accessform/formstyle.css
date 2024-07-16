@@ -98,7 +98,6 @@
 }
   .btn-recuperar{
     margin-top:1px;
- 
     background-color: #FFFFFF;
     border: double #B41400;
     color: #B41400;
@@ -122,7 +121,7 @@
   margin-bottom: 5px;
   width: auto;
 }
-.custom-form{
+.custom-form{  
   position: relative;
   color: #282828;
   font-size: var( --font-md);
@@ -191,7 +190,7 @@
 
 a:hover{
   color:#282828;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Media Query para pantallas de 450px */

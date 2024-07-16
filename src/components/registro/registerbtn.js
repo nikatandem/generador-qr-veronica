@@ -6,7 +6,7 @@ function Register(){
 return(
  
      <Link to="/registro">
-    <button className="btn">Crear cuenta</button>
+    <button className="btn-crear">Crear cuenta</button>
     </Link>
 
 

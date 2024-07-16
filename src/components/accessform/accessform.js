@@ -25,6 +25,7 @@ function Acceso() {
 
     return (
         <div className="container">
+             <h1>Inicio de sesión</h1>
             <div className="acceso">
                 <Login onLoginSuccess={handleLoginSuccess} onError={setError} />
                 <div className="botones">

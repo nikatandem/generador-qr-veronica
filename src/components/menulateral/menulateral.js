@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import "./menulateral.css"
+import React from "react";
+import { Link } from "gatsby";
+import "./menulateral.css";
 
 export const HamburgerMenuPage = () => {
   const [open, setOpen] = React.useState(false);
@@ -14,60 +14,40 @@ export const HamburgerMenuPage = () => {
       <HamburgerMenuToggler toggle={toggle} />
       <HamburgerMenuCollapse open={open}>
         <HamburgerMenuNav>
-          <HamburgerMenuItem>    
-          <div className="leteral">
-    <div className="lista">
-        <div className="menu-item">
-               <div className="text-wrapper">Menú</div>
-            </div>
+          <HamburgerMenuItem>
+            <div className="leteral">
+              <div className="lista">
+                <div className="menu-item">
+                  <div className="text-wrapper">Menú</div>
+                </div>
 
-            <div className="menu-item-2"><Link to="/inicio">
-                <a className="text-wapper-2" >Inicio</a></Link>
+                <MenuItem link="/inicio" text="Inicio" />
+                <MenuItem link="/crear-qr" text="Crear QR" />
+                <MenuItem link="/manualuso" text="Manual de uso" />
+
+                <div className="title">
+                  <div className="text-wrapper">Mi perfil</div>
+                </div>
+
+                <MenuItem link="/listado-qr" text="Historial QR" />
+                <MenuItem link="#" text="Ajustes" />
+                <MenuItem link="/formulario" text="Cerrar sesión" />
+              </div>
             </div>
-            
-            <div className="menu-item-2">
-            <Link to="/crear-qr">
-               
-                <a className="text-wapper-2">Crear QR</a>
-                </Link>
-             </div>
-             <div className="menu-item-2">
-             <Link to="/manualuso">
-               
-                 <a className="text-wapper-2">Manual de uso</a>
-               </Link>
-             </div>
-      
-             <div className="title">
-                 <div className="text-wrapper">Mi perfil</div>
-            </div>
-            <div className="menu-item-2">
-             <Link to="#">
-            
-                 <a className="text-wapper-2">Historial QR</a>
-                 </Link>
-             </div>
-             <div className="menu-item-2">
-             <Link to="#">
-               
-                 <a className="text-wapper-2">Ajustes</a>
-                 </Link>
-             </div>
-             <div className="menu-item-2">
-             <Link to="/formulario">
-                
-                 <a className="text-wapper-2">Cerrar sesión</a>
-                 </Link>
-             </div>
-         </div>
-     </div>
- 
           </HamburgerMenuItem>
         </HamburgerMenuNav>
       </HamburgerMenuCollapse>
     </HamburgerMenu>
   );
 };
+
+const MenuItem = ({ link, text }) => (
+  <div className="menu-item-2">
+    <Link to={link}>
+      <a className="text-wapper-2">{text}</a>
+    </Link>
+  </div>
+);
 
 /* Logic */
 
@@ -86,7 +66,6 @@ function HamburgerMenu({ children, bgColor, textColor }) {
   );
 }
 
-/* You can wrap the a tag with Link and pass href to Link if you are using either Create-React-App, Next.js or Gatsby */
 function HamburgerMenuBrand({ children, href }) {
   return (
     <a href={href} className={style.brand}>
@@ -114,7 +93,7 @@ function HamburgerMenuCollapse({ children, open }) {
 
   const inlineStyle = open
     ? { height: ref.current?.scrollHeight }
-    : { height: 0, visibility: 'hidden', opacity: 0 };
+    : { height: 0, visibility: "hidden", opacity: 0 };
 
   return (
     <div className={style.collapse} style={inlineStyle} ref={ref}>
@@ -131,7 +110,6 @@ function HamburgerMenuItem({ children }) {
   return <li>{children}</li>;
 }
 
-/* You can wrap the a tag with Link and pass href to Link if you are using either Create-React-App, Next.js or Gatsby */
 function HamburgerMenuLink({ children, href }) {
   return (
     <a href={href} className={style.link}>
@@ -139,15 +117,3 @@ function HamburgerMenuLink({ children, href }) {
     </a>
   );
 }
-
-
-
-
-// MenuLateral.propTypes = {
-//     home:PropTypes.string,
-//     qrCodeScan: PropTypes.string,
-//     questionCircle: PropTypes.string,
-//     list: PropTypes.string,
-//     gear: PropTypes.string,
-//     exit: PropTypes.string,
-// };

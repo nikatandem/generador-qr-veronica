@@ -1,25 +1,28 @@
-.text-wapper-2{
-    display: block;
+.text-wapper-2 {
+    display: inline;
     margin-left: 0px;
-}
-.text-wapper-2:hover{
+  }
+  
+  .text-wapper-2:hover {
     color: #282828;
-}
-.lista{
-    margin-left: 3px;
-}
-.text-wrapper{
+  }
+  
+  .lista {}
+  
+  .text-wrapper {
     color: #282828;
-    text-decoration: underline .5px;   
-}
-.toggle{
+    text-decoration: underline .5px;
+  }
+  
+  .toggle {
     background-color: #FFFFFF;
     border: double #B41400;
     color: #B41400;
     font-family: Century Gothic, serif;
-}
-.toggle:hover{
+  }
+  
+  .toggle:hover {
     background-color: #B41400;
     border: double #ffffff;
     color: #ffffff;
-}
+  }

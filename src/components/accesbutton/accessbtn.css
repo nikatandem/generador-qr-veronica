@@ -3,4 +3,8 @@
     align-items: center;
     text-align: center;
     margin-bottom: 2px;
+    text-decoration: none;
 }
+.btn:hover{
+text-decoration: none;
+} 

@@ -1,54 +1,57 @@
-
-.frame{
+#frame {
     background-image: url("../../images/image2.jpg");
-    background-color: rgba(255, 255, 255, 0.516); 
+    background-color: rgba(255, 255, 255, 0.516);
     background-blend-mode: lighten;
-    padding: 40px;
     background-size: cover;
-    height: 200px;
-    width: auto;
-    border: solid 1px #282828;
-    margin-bottom: 100px;
-}
-.container{
-    display: inline-block;
-    padding: 30px;
+    height: 250px;
+    width: 100%; /* Full width */
+    display: flex;
+    justify-content: center;
     align-items: center;
-    text-align: center;
-    width: 100%;
+    border: solid 1px #282828;
+    flex-wrap: wrap; /* Allow wrapping of items */
+    padding: 10px; /* Added padding */
+  }
   
-}
-.btn{
-    display: inline;
-    
+  .contenedor {
+    display: flex;
+    flex-wrap: wrap; /* Ensure items wrap */
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Full width */
+    text-align: center;
+  }
+  
+  .btn {
+    display: inline-block; /* Changed to inline-block for better button styling */
     background-color: #FFFFFF;
     border: double #B41400;
     border-radius: 0%;
-    color:#B41400;
-    font-family:Century Gothic,serif;
+    color: #B41400;
+    font-family: Century Gothic, serif;
     height: 40px;
-    width: auto;
-    margin-left: 5%;
- 
+    margin: 15px; /* Changed margin to uniform all-around */
+    padding: 0 15px; /* Added padding for better spacing */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
   }
- .btn:hover{
+  
+  .btn:hover {
     background-color: #B41400;
-    border: double  #ffffff;
-    color:#ffffff;
-
+    border: double #ffffff;
+    color: #ffffff;
   }
-
+  
   @media screen and (max-width: 450px) {
-    .container{
-        display: inline-block;
-        align-items: center;
-        padding: 10px;
-        margin-left: 0px;
+    #frame {
+      height: auto;
+      padding: 20px; /* Increased padding for better spacing */
     }
-    .btn{
-        display: block;
+    .container {
+      flex-direction: column; /* Stack items vertically */
+      padding: 0;
     }
-    .frame{
-        height: auto;
+    .btn {
+      width: 100%; /* Full width buttons */
+      margin: 10px 0; /* Margin for vertical spacing */
     }
   }
