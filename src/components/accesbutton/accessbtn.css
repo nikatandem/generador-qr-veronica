@@ -1,7 +1,9 @@
-.btn{
-    display: flex;
+#acceso-btn{
+    position: fixed;
+    right: 5px;
+    top: 25px;
     align-items: center;
-    text-align: center;
+    
     margin-bottom: 2px;
     text-decoration: none;
 }

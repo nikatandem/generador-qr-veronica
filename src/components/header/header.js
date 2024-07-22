@@ -1,5 +1,4 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby"
 import "../layout.css"
 import { StaticImage } from "gatsby-plugin-image"
 import { Link } from 'gatsby';
@@ -18,6 +17,8 @@ return(
       }}>
         <Link to="/"><Logo /></Link>
         Generador de QR
+       
+
       </h1>
     </>
 

@@ -7,7 +7,8 @@ import Slider from "../components/slider/slider"
 const IndexPage = () =>{
 return(
   <>
-  <Layout><Access/>
+  <Layout>  
+    <Access/>
     <h2>Bienvenido al Generador de QR</h2>
 
 <Slider/>

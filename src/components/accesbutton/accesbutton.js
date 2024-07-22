@@ -6,7 +6,7 @@ import "./accessbtn.css"
 function Access(){
 return(
     <Link to="/formulario">
-    <button className="btn">Acceder a la APP</button>
+    <button className="btn" id="acceso-btn">Acceder a la APP</button>
     </Link>
 )
 }
