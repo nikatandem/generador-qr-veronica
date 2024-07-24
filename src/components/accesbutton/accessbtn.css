@@ -10,3 +10,8 @@
 .btn:hover{
 text-decoration: none;
 } 
+
+.btn{
+    text-align: center;
+    align-items: center;
+}
