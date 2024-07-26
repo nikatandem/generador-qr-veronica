@@ -3,9 +3,9 @@ import "./editar-qr.css";
 
 function EditarQR({ qr, onQrUpdated }) {
     const [showModal, setShowModal] = useState(false);
-    const [data, setData] = useState(qr.qr_data);
-    const [nombreRef, setNombreRef] = useState(qr.qr_nombre_ref);
-    const [description, setDescription] = useState(qr.qr_description);
+    const [data, setData] = useState(qr.qr_data || "");
+    const [nombreRef, setNombreRef] = useState(qr.qr_nombre_ref || "");
+    const [description, setDescription] = useState(qr.qr_description || "");
     const [message, setMessage] = useState('');
 
     const handleUpdate = async () => {
@@ -23,9 +23,9 @@ function EditarQR({ qr, onQrUpdated }) {
                 throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
             }
 
-            const data = await response.json();
-            console.log("Response data:", data);
-            const updatedQr = { ...qr, qr_data: data.data, qr_nombre_ref: nombreRef, qr_description: description };
+            const responseData = await response.json();
+            console.log("Response data:", responseData);
+            const updatedQr = { ...qr, qr_data: data, qr_nombre_ref: nombreRef, qr_description: description };
             setMessage('Código QR actualizado correctamente');
             onQrUpdated(updatedQr);
             setShowModal(false); // Cerrar el modal
