@@ -20,10 +20,9 @@ function ListadoQR({ url }) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                setUsers(data.qr_codes);
+                setUsers(data.qr_codes || []);
             } catch (error) {
-                console.log("Error al buscar la lista de usuarios", error);
-                console.error("Stack trace:", error.stack);
+                console.error("Error al buscar la lista de usuarios:", error);
                 setMessage("Error al buscar la lista de usuarios");
             }
         };
