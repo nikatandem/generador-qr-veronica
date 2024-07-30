@@ -14,7 +14,7 @@ function EliminarQR({ qrId, onQrDeleted }) {
                         headers: {
                             "Content-Type": "application/json"
                         },
-                        body: JSON.stringify({ id: qrId })
+                        body: JSON.stringify({ id: qr.qr_id })
                     }
                 );
     
