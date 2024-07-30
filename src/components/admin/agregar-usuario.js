@@ -19,7 +19,7 @@ function AgregarUsuario() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost/api-qr-tandem/v1/register-user.php', {
+      const response = await fetch('https://veronica.tandempatrimonionacional.eu/api-qr-tandem/v1/register-user.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

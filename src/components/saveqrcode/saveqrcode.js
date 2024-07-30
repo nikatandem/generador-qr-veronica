@@ -33,7 +33,7 @@ const SaveQrCode = ({ data, nombre_ref, description, created_by }) => {
     };
 
     try {
-      const response = await fetch('http://localhost/api-qr-tandem/v1/create-qr.php', {
+      const response = await fetch('https://veronica.tandempatrimonionacional.eu/api-qr-tandem/v1/create-qr.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -8,7 +8,7 @@ function ListaQr() {
   <Layout>
     <HamburgerMenuPage/>
   <h1>Lista de QR</h1>
-  <ListadoQR url="http://localhost/api-qr-tandem/v1/list-qr.php"></ListadoQR>
+  <ListadoQR url="https://veronica.tandempatrimonionacional.eu/api-qr-tandem/v1/list-qr.php"></ListadoQR>
 
   </Layout>
   </> 

@@ -10,7 +10,7 @@ function EditarQR({ qr, onQrUpdated }) {
 
     const handleUpdate = async () => {
         try {
-            const response = await fetch("http://localhost/api-qr-tandem/v1/update-qr.php", {
+            const response = await fetch("https://veronica.tandempatrimonionacional.eu/api-qr-tandem/v1/update-qr.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

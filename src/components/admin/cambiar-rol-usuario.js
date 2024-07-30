@@ -8,7 +8,7 @@ function CambiarRol({ userEmail, onRoleChanged }) {
   
     const handleRoleChange = async () => {
       try {
-        const response = await fetch("http://localhost/api-qr-tandem/v1/change-role.php", {
+        const response = await fetch("https://veronica.tandempatrimonionacional.eu/api-qr-tandem/v1/change-role.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

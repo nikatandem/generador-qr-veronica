@@ -10,7 +10,7 @@ const Login = ({ onError }) => {
         setIsLoading(true);
         setMessage('');
         try {
-            const response = await fetch('http://localhost/api-qr-tandem/v1/login-user.php', {
+            const response = await fetch('https://veronica.tandempatrimonionacional.eu/api-qr-tandem/v1/login-user.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ const Login = ({ onError }) => {
         <>
             <div className='log'>
                 <h3>Introduzca sus credenciales</h3>
-                <label chtmlFor='email' className='datos'>Introduzca su email:</label>
+                <label htmlFor='email' className='datos'>Introduzca su email:</label>
                 <input
                     className='campo'
                     type="email"
@@ -74,7 +74,6 @@ const Login = ({ onError }) => {
                 {isLoading ? 'Cargando...' : 'Acceder'}
             </button>
             {message && <p>{message}</p>}
-   
         </>
     );
 };

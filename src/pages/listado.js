@@ -9,7 +9,7 @@ function ListaUsuarios() {
   <Layout>
     <HamburgerMenuPage/>
   <h1>Lista de usuarios</h1>
-  <Listar url="http://localhost/api-qr-tandem/v1/list-users.php"></Listar>
+  <Listar url="https://veronica.tandempatrimonionacional.eu/api-qr-tandem/v1/list-users.php"></Listar>
   <AgregarUsuario/>
   </Layout>
   </> 

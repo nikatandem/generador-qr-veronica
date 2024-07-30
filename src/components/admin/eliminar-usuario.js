@@ -8,7 +8,7 @@ function EliminarUsuario({ userId, onUserDeleted }) {
         if (confirmed) {
             try {
                 const response = await fetch(
-                    "http://localhost/api-qr-tandem/v1/delete-user.php",
+                    "https://veronica.tandempatrimonionacional.eu/api-qr-tandem/v1/delete-user.php",
                     {
                         method: "POST",
                         headers: {

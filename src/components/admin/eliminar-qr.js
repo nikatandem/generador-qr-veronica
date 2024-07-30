@@ -8,7 +8,7 @@ function EliminarQR({ qrId, onQrDeleted }) {
         if (confirmed) {
             try {
                 const response = await fetch(
-                    "http://localhost/api-qr-tandem/v1/delete-qr.php",
+                    "https://veronica.tandempatrimonionacional.eu/api-qr-tandem/v1/delete-qr.php",
                     {
                         method: "POST",
                         headers: {
