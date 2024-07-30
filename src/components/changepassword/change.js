@@ -37,7 +37,7 @@ const ChangePassword = () => {
             return;
         }
         
-        const url = 'https://veronica.tandempatrimonionacional.eu/api-qr-tandem/v1/change-password.php'; // Reemplaza 'URL_DEL_ENDPOINT' con la URL de tu endpoint PHP
+        const url = 'https://veronica.tandempatrimonionacional.eu/api-qr-tandem/v1/change-password.php';
 
         const data = {
             email: formData.email,
