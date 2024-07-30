@@ -17,13 +17,12 @@ function EliminarQR({ qrId, onQrDeleted }) {
                         body: JSON.stringify({ id: qrId })
                     }
                 );
+    
                 if (!response.ok) {
-                    const data = await response.json().catch(() => {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    });
+                    const data = await response.json();
                     throw new Error(data.message || `HTTP error! status: ${response.status}`);
                 }
-
+    
                 setMessage('Código QR eliminado correctamente');
                 onQrDeleted(qrId);
             } catch (error) {
