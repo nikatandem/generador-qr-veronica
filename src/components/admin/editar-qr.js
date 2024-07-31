@@ -48,11 +48,11 @@ function EditarQR({ qr, onQrUpdated }) {
                             <input type="text" value={data} onChange={(e) => setData(e.target.value)} />
                         </label>
                         <label>
-                        Descripción:
+                            Nombre de Referencia:
                             <input type="text" value={nombreRef} onChange={(e) => setNombreRef(e.target.value)} />
                         </label>
                         <label>
-                        Nombre de Referencia:
+                            Descripción:
                             <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
                         </label>
                         <button onClick={handleUpdate}>Guardar</button>
