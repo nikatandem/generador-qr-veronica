@@ -6,6 +6,7 @@ import CambiarRol from "./cambiar-rol-usuario";
 function Listar({ url }) {
   const [users, setUsers] = useState([]);
   const [message, setMessage] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -39,6 +40,11 @@ function Listar({ url }) {
     setUsers(users.map(user => user.email === email ? { ...user, role: newRole } : user));
   };
 
+  // Filtrar los usuarios según el término de búsqueda
+  const filteredUsers = users.filter(user =>
+    user.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   const tableStyle = {
     width: "100%",
     borderCollapse: "collapse",
@@ -59,7 +65,19 @@ function Listar({ url }) {
   return (
     <>
       <h2>Usuarios registrados</h2>
-    
+      <label htmlFor="search-form">
+        <span className="sr-only">Buscar por nombre:</span>
+        <input
+          type="search"
+          name="search-form"
+          id="search-form"
+          className="search-input"
+          placeholder="Buscar por nombre"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          style={{ width: '400px', height: '40px', fontSize: '16px', padding: '10px' }}
+        />
+      </label>
       <table style={tableStyle}>
         <thead>
           <tr>
@@ -74,7 +92,7 @@ function Listar({ url }) {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {filteredUsers.map((user) => (
             <tr key={user.id}>
               <td style={thTdStyle}>{user.id}</td>
               <td style={thTdStyle}>{user.nombre}</td>

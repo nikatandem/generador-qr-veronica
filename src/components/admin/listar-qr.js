@@ -4,11 +4,12 @@ import EditarQR from "./editar-qr";
 import "./editar-qr.css"; // Asegúrate de tener un archivo CSS para los estilos
 
 function ListadoQR({ url }) {
-    const [users, setUsers] = useState([]);
+    const [qrCodes, setQrCodes] = useState([]);
     const [message, setMessage] = useState("");
+    const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
-        const fetchUsers = async () => {
+        const fetchQrCodes = async () => {
             try {
                 const response = await fetch(url, {
                     method: "GET",
@@ -20,18 +21,23 @@ function ListadoQR({ url }) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                setUsers(data.qr_codes || []);
+                setQrCodes(data.qr_codes || []);
             } catch (error) {
-                console.error("Error al buscar la lista de usuarios:", error);
-                setMessage("Error al buscar la lista de usuarios");
+                console.error("Error al buscar la lista de códigos QR:", error);
+                setMessage("Error al buscar la lista de códigos QR");
             }
         };
-        fetchUsers();
+        fetchQrCodes();
     }, [url]);
 
     const handleQrDeleted = (qrId) => {
-        setUsers(users.filter(qr => qr.qr_id !== qrId));
+        setQrCodes(qrCodes.filter(qr => qr.qr_id !== qrId));
     };
+
+    // Filtrar los códigos QR según el término de búsqueda
+    const filteredQrCodes = qrCodes.filter(qr =>
+        qr.qr_nombre_ref.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     const tableStyle = {
         width: "100%",
@@ -53,7 +59,19 @@ function ListadoQR({ url }) {
     return (
         <>
             <h2>Códigos QR registrados</h2>
-        
+            <label htmlFor="search-form">
+                <span className="sr-only">Buscar por nombre de referencia:</span>
+                <input
+                    type="search"
+                    name="search-form"
+                    id="search-form"
+                    className="search-input"
+                    placeholder="Buscar por nombre de referencia"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    style={{ width: '400px', height: '40px', fontSize: '16px', padding: '10px' }}
+                />
+            </label>
             <table style={tableStyle}>
                 <thead>
                     <tr>
@@ -67,15 +85,15 @@ function ListadoQR({ url }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((qr) => (
+                    {filteredQrCodes.map((qr) => (
                         <tr key={qr.qr_id}>
                             <td style={thTdStyle}>{qr.qr_id}</td>
                             <td style={thTdStyle}>{qr.qr_data}</td>
                             <td style={thTdStyle}>{qr.qr_nombre_ref}</td>
                             <td style={thTdStyle}>{qr.qr_description}</td>
-                            <td style={thTdStyle}>{qr.user_id} - {qr.user_role}</td>
+                            <td style={thTdStyle}>{qr.user_id}</td>
                             <td style={thTdStyle}>
-                                <EditarQR qr={qr} onQrUpdated={(updatedQr) => setUsers(users.map(u => u.qr_id === updatedQr.qr_id ? updatedQr : u))} />
+                                <EditarQR qr={qr} onQrUpdated={(updatedQr) => setQrCodes(qrCodes.map(u => u.qr_id === updatedQr.qr_id ? updatedQr : u))} />
                             </td>
                             <td style={thTdStyle}>
                                 <EliminarQR qrId={qr.qr_id} onQrDeleted={handleQrDeleted} />
