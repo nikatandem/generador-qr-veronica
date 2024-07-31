@@ -7,6 +7,11 @@ const Login = ({ onError }) => {
     const [isLoading, setIsLoading] = useState(false);
 
     const handleLogin = async () => {
+        if (!email || !password) {
+            setMessage('Por favor, complete todos los campos.');
+            return;
+        }
+
         setIsLoading(true);
         setMessage('');
         try {
@@ -19,20 +24,18 @@ const Login = ({ onError }) => {
             });
 
             const result = await response.json();
-            console.log(result);
 
             if (response.ok && result.message === 'Login exitoso') {
-                // Guardar la información del usuario en localStorage
                 localStorage.setItem('tndm_id', result.user.id);
                 localStorage.setItem('tndm_nombre', result.user.nombre);
                 localStorage.setItem('tndm_email', result.user.email);
                 localStorage.setItem('tndm_token', result.token);
-
+                
                 setMessage('Login exitoso');
-                window.location.href = '/inicio'; // Redirigir a la página de inicio
+                window.location.href = '/inicio'; // Mejor usar react-router para la navegación
             } else {
-                setMessage('Credenciales incorrectas');
-                onError('Credenciales incorrectas');
+                setMessage(result.message || 'Credenciales incorrectas');
+                onError(result.message || 'Credenciales incorrectas');
             }
         } catch (error) {
             setMessage('Error en el login');

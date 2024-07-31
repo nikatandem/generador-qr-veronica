@@ -25,6 +25,7 @@ export const HamburgerMenuPage = () => {
                 <MenuItem link="/crear-qr" text="Crear QR" />
                 <MenuItem link="/manualuso" text="Manual de uso" />
                 <MenuItem link="/listado-qr" text="Historial QR" />
+                {/* <MenuItem link="/listado-qr-user" text="Mis QR" /> */}
                 <MenuItem link="/listado" text="Lista de usuarios" />
                 <div className="title">
                   <div className="text-wrapper">Mi perfil</div>
